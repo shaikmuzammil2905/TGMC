@@ -258,10 +258,10 @@ export const ContactPage: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Send Enquiry via WhatsApp ({COMPANY_DETAILS.formattedWhatsApp})</span>
+                  <Send className="w-4 h-4" />
+                  <span>Submit</span>
                 </button>
               </form>
             )}

@@ -198,14 +198,14 @@ export const ContactPopupModal: React.FC<ContactPopupModalProps> = ({
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <button
                 type="submit"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 rounded-xl shadow-lg shadow-emerald-600/20 transition-all cursor-pointer"
+                className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 text-base font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 rounded-xl shadow-lg shadow-emerald-600/20 transition-all cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4" />
-                Send Enquiry via WhatsApp
+                <Send className="w-4 h-4" />
+                Submit
               </button>
               <a
                 href={`tel:${COMPANY_DETAILS.phone}`}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-tgmc-navy bg-slate-100 hover:bg-slate-200 rounded-xl transition-all"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 text-sm font-semibold text-tgmc-navy bg-slate-100 hover:bg-slate-200 rounded-xl transition-all"
               >
                 <Phone className="w-4 h-4 text-tgmc-blue" />
                 Call Now
