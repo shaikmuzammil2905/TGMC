@@ -43,11 +43,34 @@
 }
 
 .water-pattern {
-  background-image: radial-gradient(rgba(0, 168, 232, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 168, 232, 0.2) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
 }
 
-/* Hero Water Animation */
+/* Custom Deep Text Shadows for High Contrast over Bright Water */
+.text-shadow-deep {
+  text-shadow: 0 4px 24px rgba(0, 20, 50, 0.95), 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.text-shadow-cyan {
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.9), 0 2px 10px rgba(0, 20, 50, 0.95);
+}
+
+.text-shadow-gold {
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.8), 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+/* Hero Water Splash Wave Animation */
+@keyframes waterWave {
+  0% { transform: scale(1) translateY(0px) rotate(0deg); }
+  50% { transform: scale(1.05) translateY(-8px) rotate(0.8deg); }
+  100% { transform: scale(1) translateY(0px) rotate(0deg); }
+}
+
+.animate-water-wave {
+  animation: waterWave 7s ease-in-out infinite;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
@@ -58,8 +81,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 0.9; transform: scale(1.05); }
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
 }
 
 .animate-pulse-glow {
