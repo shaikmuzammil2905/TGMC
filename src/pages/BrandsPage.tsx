@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BRANDS, PRODUCTS } from '../data/products';
-import { Award, ChevronRight, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Award, ChevronRight } from 'lucide-react';
 
 interface BrandsPageProps {
   onOpenEnquiry: (productName?: string) => void;
@@ -15,13 +15,13 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenEnquiry }) => {
         {/* Page Header */}
         <div className="max-w-3xl">
           <span className="text-xs font-bold uppercase tracking-wider text-tgmc-blue bg-tgmc-light px-3 py-1 rounded-full border border-tgmc-blue/20">
-            Brand Partners
+            Brand Partner
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mt-2">
-            Trusted Brands We Supply
+            ZERO B Pure Water Solutions
           </h1>
           <p className="text-sm text-slate-600 mt-2">
-            TGMC supplies, installs, and provides professional service support for leading brands in water purification, heating, and pumping solutions across Bangalore.
+            TGMC supplies, installs, and provides professional service support for ZERO B water purifiers, automatic softeners, filters, and heat pumps across Bangalore and Karnataka.
           </p>
         </div>
 
@@ -38,15 +38,13 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenEnquiry }) => {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
                   <div>
                     <div className="flex items-center gap-3">
-                      <h2 className="text-2xl font-black text-tgmc-navy font-heading">
+                      <h2 className="text-3xl font-black text-tgmc-navy font-heading">
                         {brand.name}
                       </h2>
-                      {brand.isAuthorised && (
-                        <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-                          <Award className="w-3.5 h-3.5 text-amber-600" />
-                          Authorised Distributor
-                        </span>
-                      )}
+                      <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                        <Award className="w-3.5 h-3.5 text-amber-600" />
+                        Flagship Brand Partner
+                      </span>
                     </div>
                     <p className="text-xs font-semibold text-tgmc-blue mt-1">
                       {brand.tagline}
@@ -55,21 +53,21 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenEnquiry }) => {
 
                   <Link
                     to={`/products?brand=${encodeURIComponent(brand.name)}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-tgmc-navy bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors self-start sm:self-auto"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-tgmc-navy hover:bg-tgmc-blue rounded-xl transition-colors self-start sm:self-auto shadow"
                   >
-                    <span>View All {brand.name} Products ({brandProducts.length})</span>
+                    <span>View All ZERO B Products ({brandProducts.length})</span>
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
 
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {brand.description}
                 </p>
 
                 {/* Brand Products Chips */}
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-                    Available Models & Products:
+                    Available ZERO B Models & Products ({brandProducts.length}):
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                     {brandProducts.map((prod) => (

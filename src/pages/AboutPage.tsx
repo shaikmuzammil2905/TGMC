@@ -121,7 +121,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenEnquiry }) => {
             </div>
 
             <div className="pt-4 border-t border-white/10 text-[11px] text-slate-300">
-              Authorized Distributor for Delta Green Heat Pumps & supplier of Zero B, V-Guard, Racold, Grundfos, Kirloskar & Commercial RO Systems.
+              Sales, installation and service support for ZERO B water purifiers, softeners, automatic filters & heat pumps across Bangalore.
             </div>
           </div>
 
