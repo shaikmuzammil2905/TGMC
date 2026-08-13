@@ -62,7 +62,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenEnquiry }) => {
 
           {/* Category Filter Pills */}
           <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none mb-8">
-            {CATEGORIES.slice(0, 8).map((cat) => (
+            {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}

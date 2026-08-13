@@ -3,7 +3,7 @@ export interface Product {
   slug: string;
   name: string;
   brand: string;
-  category: 'Water Softener' | 'Sand Filter' | 'Carbon Filter' | 'Iron Filter' | 'RO Purifier' | 'Heat Pump' | 'Commercial RO' | 'Water Level Controller';
+  category: 'Water Softener' | 'Sand Filter' | 'Carbon Filter' | 'Iron Filter' | 'RO Purifier' | 'Commercial RO' | 'Heat Pump' | 'Solar Water Heater' | 'Solar with Heat Pump' | 'Pressure Pump' | 'Hot Water Recirculation Pump' | 'Sump Pump';
   image: string;
   shortDesc: string;
   fullDesc: string;
@@ -32,9 +32,99 @@ export const BRANDS: Brand[] = [
     name: 'ZERO B',
     tagline: 'Pure Water Solutions | Ion Exchange',
     isAuthorised: true,
-    description: 'Pioneers in automatic water softening, advanced filtration, drinking RO purifiers, commercial RO plants, and eco-friendly heat pumps.',
-    categories: ['Water Softener', 'Sand Filter', 'Carbon Filter', 'Iron Filter', 'RO Purifier', 'Heat Pump', 'Commercial RO'],
+    description: 'Pioneers in automatic water softening, advanced filtration, drinking RO purifiers, and commercial water systems.',
+    categories: ['Water Softener', 'Sand Filter', 'Carbon Filter', 'Iron Filter', 'RO Purifier', 'Commercial RO', 'Heat Pump'],
     logoText: 'ZERO B'
+  },
+  {
+    id: 'delta-green',
+    name: 'DELTA GREEN',
+    tagline: 'High-Efficiency Heat Pump Systems',
+    isAuthorised: true,
+    description: 'TGMC is an Authorised Distributor for Delta Green residential and commercial heat pump water heaters.',
+    categories: ['Heat Pump'],
+    logoText: 'DELTA GREEN'
+  },
+  {
+    id: 'v-guard',
+    name: 'V GUARD',
+    tagline: 'Reliable Power & Solar Heating Solutions',
+    isAuthorised: false,
+    description: 'Trusted manufacturer of high-efficiency solar water heaters, pressure booster pumps, and heat pumps.',
+    categories: ['Solar Water Heater', 'Solar with Heat Pump', 'Pressure Pump', 'Hot Water Recirculation Pump', 'Heat Pump'],
+    logoText: 'V GUARD'
+  },
+  {
+    id: 'racold',
+    name: 'RACOLD',
+    tagline: 'Reclaim Your Water Heating',
+    isAuthorised: false,
+    description: 'Premium solar water heaters, heat pump water heaters, and advanced domestic geysers.',
+    categories: ['Solar Water Heater', 'Solar with Heat Pump', 'Heat Pump'],
+    logoText: 'RACOLD'
+  },
+  {
+    id: 'emmvee-solarizer',
+    name: 'EMMVEE SOLARIZER',
+    tagline: 'Premium Solar Water Heating',
+    isAuthorised: false,
+    description: 'German-engineered solar hot water systems built for maximum heat absorption and durability.',
+    categories: ['Solar Water Heater', 'Solar with Heat Pump'],
+    logoText: 'EMMVEE SOLARIZER'
+  },
+  {
+    id: 'supreme',
+    name: 'SUPREME',
+    tagline: 'Smart Rooftop Solar Solutions',
+    isAuthorised: false,
+    description: 'Supreme Solar hot water systems built for durability and long service life.',
+    categories: ['Solar Water Heater'],
+    logoText: 'SUPREME'
+  },
+  {
+    id: 'kamal',
+    name: 'KAMAL',
+    tagline: 'Efficient Solar & Heat Pump Systems',
+    isAuthorised: false,
+    description: 'Kamal solar water heating and hybrid heat pump systems for consistent hot water.',
+    categories: ['Solar Water Heater', 'Solar with Heat Pump'],
+    logoText: 'KAMAL'
+  },
+  {
+    id: 'grundfos',
+    name: 'GRUNDFOS',
+    tagline: 'Global Leader in Advanced Pump Solutions',
+    isAuthorised: false,
+    description: 'World-class automatic water pressure booster systems, sump pumps, and recirculation pump systems.',
+    categories: ['Pressure Pump', 'Hot Water Recirculation Pump', 'Sump Pump'],
+    logoText: 'GRUNDFOS'
+  },
+  {
+    id: 'kirloskar',
+    name: 'KIRLOSKAR',
+    tagline: 'Proven Pump Engineering since 1888',
+    isAuthorised: false,
+    description: 'Robust, highly efficient pressure pumps and submersible sump pumps for residential and commercial use.',
+    categories: ['Pressure Pump', 'Sump Pump'],
+    logoText: 'KIRLOSKAR'
+  },
+  {
+    id: 'lubi',
+    name: 'LUBI',
+    tagline: 'Reliable Pumping Solutions',
+    isAuthorised: false,
+    description: 'High-quality domestic water pressure pumps and agricultural booster systems.',
+    categories: ['Pressure Pump'],
+    logoText: 'LUBI'
+  },
+  {
+    id: 'texmo',
+    name: 'TEXMO',
+    tagline: 'Legendary Performance and Durability',
+    isAuthorised: false,
+    description: 'Taro pumps offering heavy-duty submersible sump pumps and water transfer systems.',
+    categories: ['Sump Pump'],
+    logoText: 'TEXMO'
   }
 ];
 
@@ -115,25 +205,6 @@ export const PRODUCTS: Product[] = [
       'Chemical-free oxidation mechanism'
     ],
     applications: ['High Iron Borewell Water', 'Residential Complexes', 'Industrial Pre-treatment']
-  },
-  {
-    id: 'zb-heat-pump',
-    slug: 'zero-b-heat-pump',
-    name: 'ZERO B HEAT PUMP',
-    brand: 'ZERO B',
-    category: 'Heat Pump',
-    image: '/products/zero-b-heat-pump.png',
-    numberTag: 5,
-    isHeroFeatured: true,
-    shortDesc: 'Energy-efficient air-to-water heat pump for 24x7 hot water supply with up to 70% energy savings.',
-    fullDesc: 'Zero B Heat Pump utilizes advanced heat exchanger technology to extract thermal energy from ambient air to heat domestic water efficiently in all weather conditions.',
-    features: [
-      'Extracts heat energy from ambient atmosphere',
-      'Saves up to 70% electricity compared to conventional geysers',
-      'All-weather 24/7 hot water availability',
-      'Eco-friendly refrigerant technology'
-    ],
-    applications: ['Villas', 'Residential Buildings', 'Hotels', 'Hostels']
   },
   {
     id: 'zb-under-sink-ro',
@@ -263,7 +334,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Executive Offices', 'Homes', 'Bedrooms', 'Conference Rooms']
   },
 
-  // --- ZERO B NON-ELECTRIC PURIFIERS (PDF PAGE 3) ---
+  // --- ZERO B NON-ELECTRIC PURIFIERS ---
   {
     id: 'zb-suraksha-pluspro',
     slug: 'zero-b-suraksha-pluspro',
@@ -315,7 +386,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Kitchen Sinks', 'Vegetable Washing', 'Domestic Taps']
   },
 
-  // --- ZERO B WATER SOFTENERS & FILTERS (PDF PAGE 4) ---
+  // --- ZERO B WATER SOFTENERS & FILTERS ---
   {
     id: 'zb-minisoft-bathroom',
     slug: 'zero-b-mini-soft-bathroom-softener',
@@ -411,7 +482,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Pre-RO Treatment', 'Borewell Domestic Lines']
   },
 
-  // --- ZERO B COMMERCIAL RO PLANTS (PDF PAGE 3) ---
+  // --- ZERO B COMMERCIAL RO PLANTS ---
   {
     id: 'zb-intello-25lph',
     slug: 'zero-b-intello-ro-25lph',
@@ -462,6 +533,282 @@ export const PRODUCTS: Product[] = [
       'Auto flush timer enhances membrane life'
     ],
     applications: ['Institutes', 'Offices', 'Large Families', 'Factories']
+  },
+
+  // --- HEAT PUMPS (DELTA GREEN, V-GUARD, ZERO B, RACOLD) ---
+  {
+    id: 'hp-deltagreen',
+    slug: 'delta-green-heat-pump',
+    name: 'DELTA GREEN HEAT PUMP',
+    brand: 'DELTA GREEN',
+    category: 'Heat Pump',
+    image: '/products/heatpump-deltagreen.png',
+    shortDesc: 'Delta Green energy-efficient residential and commercial heat pump water heater.',
+    fullDesc: 'High efficiency air-to-water heat pump systems from Delta Green. Provides 24x7 hot water with up to 70% energy savings.',
+    features: ['Eco-friendly refrigerant', 'Digital controller panel', 'High COP heating'],
+    applications: ['Villas', 'Independent Houses', 'Hotels', 'Hostels']
+  },
+  {
+    id: 'hp-vguard',
+    slug: 'v-guard-heat-pump',
+    name: 'V GUARD HEAT PUMP',
+    brand: 'V GUARD',
+    category: 'Heat Pump',
+    image: '/products/heatpump-vguard.png',
+    shortDesc: 'V-Guard smart heat pump water heater for residential and villa applications.',
+    fullDesc: 'V-Guard heat pump water heaters use advanced air-to-water heat exchanger tech to deliver steady hot water with low power usage.',
+    features: ['Corrosion-resistant tank', 'Quick temperature recovery', 'Saves up to 70% power'],
+    applications: ['Villas', 'Duplex Homes', 'Guest Houses']
+  },
+  {
+    id: 'hp-zerob',
+    slug: 'zero-b-heat-pump-heater',
+    name: 'ZERO B HEAT PUMP',
+    brand: 'ZERO B',
+    category: 'Heat Pump',
+    image: '/products/heatpump-zerob.png',
+    shortDesc: 'Zero B premium heat pump system for centralized domestic hot water.',
+    fullDesc: 'Zero B air-to-water heat pump system from Ion Exchange. Extremely efficient, reliable all-weather operation.',
+    features: ['Heavy-duty compressor', 'Sleek casing', 'Smart digital control display'],
+    applications: ['Independent Residences', 'Apartments', 'Commercial Outlets']
+  },
+  {
+    id: 'hp-racold',
+    slug: 'racold-heat-pump-heater',
+    name: 'RACOLD HEAT PUMP',
+    brand: 'RACOLD',
+    category: 'Heat Pump',
+    image: '/products/heatpump-racold.png',
+    shortDesc: 'Racold premium energy-efficient heat pump system.',
+    fullDesc: 'Racold residential and commercial heat pump water heaters, utilizing thermodynamic principles to heat water efficiently.',
+    features: ['Thermodynamic cycle heating', 'Intelligent control system', 'Corrosion resistant tank'],
+    applications: ['Luxury Villas', 'Spas', 'Hotels', 'Apartments']
+  },
+
+  // --- SOLAR WATER HEATERS (EMMVEE SOLARIZER, V-GUARD, RACOLD, SUPREME, KAMAL) ---
+  {
+    id: 'swh-emmvee',
+    slug: 'emmvee-solarizer-solar-water-heater',
+    name: 'EMMVEE SOLARIZER SOLAR WATER HEATER',
+    brand: 'EMMVEE SOLARIZER',
+    category: 'Solar Water Heater',
+    image: '/products/solar-emmvee.png',
+    shortDesc: 'Emmvee Solarizer premium rooftop solar water heating system.',
+    fullDesc: 'Emmvee Solarizer is a top-tier solar water heater featuring high-absorption glass collector plates for rapid water heating.',
+    features: ['Premium glass collector plates', 'German technology engineering', 'Rust-proof frame support'],
+    applications: ['Rooftops', 'Independent Homes', 'Hostels']
+  },
+  {
+    id: 'swh-vguard',
+    slug: 'v-guard-solar-water-heater',
+    name: 'V GUARD SOLAR WATER HEATER',
+    brand: 'V GUARD',
+    category: 'Solar Water Heater',
+    image: '/products/solar-vguard.png',
+    shortDesc: 'V-Guard Evacuated Tube Collector (ETC) solar water heater.',
+    fullDesc: 'V-Guard ETC solar water heater with high density PUF insulation, ensuring water stays hot overnight.',
+    features: ['Evacuated Glass Tube (ETC)', 'Thick PUF insulation', 'Sacrificial anode protection'],
+    applications: ['Residential Houses', 'Gated Communities']
+  },
+  {
+    id: 'swh-racold',
+    slug: 'racold-solar-water-heater',
+    name: 'RACOLD SOLAR WATER HEATER',
+    brand: 'RACOLD',
+    category: 'Solar Water Heater',
+    image: '/products/solar-racold.png',
+    shortDesc: 'Racold high-efficiency rooftop solar water heater.',
+    fullDesc: 'Racold solar water heating systems combine international quality design with durable collector panels.',
+    features: ['High heat transfer coating', 'Durable support stand', 'Overheat safety release valve'],
+    applications: ['Villas', 'PG Accommodations', 'Hotels']
+  },
+  {
+    id: 'swh-supreme',
+    slug: 'supreme-solar-water-heater',
+    name: 'SUPREME SOLAR WATER HEATER',
+    brand: 'SUPREME',
+    category: 'Solar Water Heater',
+    image: '/products/solar-supreme.png',
+    shortDesc: 'Supreme Solar high performance evacuated tube collector heater.',
+    fullDesc: 'Supreme Solar rooftop system designed for efficient solar thermal conversion even on cloudy days.',
+    features: ['High transmission glass ETC tubes', 'Rustproof inner tank lining', 'Sturdy powder-coated stand'],
+    applications: ['Independent Residences', 'Apartments']
+  },
+  {
+    id: 'swh-kamal',
+    slug: 'kamal-solar-water-heater',
+    name: 'KAMAL SOLAR WATER HEATER',
+    brand: 'KAMAL',
+    category: 'Solar Water Heater',
+    image: '/products/solar-kamal.png',
+    shortDesc: 'Kamal premium rooftop solar water heater.',
+    fullDesc: 'Kamal solar hot water system built for long lifetime and highly efficient thermal heating.',
+    features: ['Highly efficient copper/glass solar panel', 'Heavy-duty insulated storage tank'],
+    applications: ['Homes', 'Villas', 'Commercial Buildings']
+  },
+
+  // --- SOLAR WITH HEAT PUMP (EMMVEE SOLARIZER, V-GUARD, RACOLD, KAMAL) ---
+  {
+    id: 's-hp-emmvee',
+    slug: 'emmvee-solarizer-solar-with-heat-pump',
+    name: 'EMMVEE SOLARIZER SOLAR WITH HEAT PUMP',
+    brand: 'EMMVEE SOLARIZER',
+    category: 'Solar with Heat Pump',
+    image: '/products/solar-heatpump-emmvee.png',
+    shortDesc: 'Hybrid Emmvee Solarizer solar water heater integrated with heat pump backup.',
+    fullDesc: 'Advanced hybrid water heating combining solar thermal efficiency with air-source heat pump technology for 24x7 hot water regardless of weather.',
+    features: ['Hybrid solar + heat pump system', 'German engineering quality', 'All-weather hot water heating'],
+    applications: ['Villas', 'Apartments', 'Commercial Projects']
+  },
+  {
+    id: 's-hp-vguard',
+    slug: 'v-guard-solar-with-heat-pump',
+    name: 'V GUARD SOLAR WITH HEAT PUMP',
+    brand: 'V GUARD',
+    category: 'Solar with Heat Pump',
+    image: '/products/solar-heatpump-vguard.png',
+    shortDesc: 'V-Guard integrated solar and heat pump hybrid water heater.',
+    fullDesc: 'Smart hybrid system that prioritizes solar heating first, and automatically triggers the heat pump when solar energy is insufficient.',
+    features: ['Automatic backup controller', 'Highly insulated hot water storage', 'Optimized power usage'],
+    applications: ['Duplex Villas', 'PG Hostels', 'Hospitals']
+  },
+  {
+    id: 's-hp-racold',
+    slug: 'racold-solar-with-heat-pump',
+    name: 'RACOLD SOLAR WITH HEAT PUMP',
+    brand: 'RACOLD',
+    category: 'Solar with Heat Pump',
+    image: '/products/solar-heatpump-racold.png',
+    shortDesc: 'Racold hybrid solar water heater with heat pump integration.',
+    fullDesc: 'Premium Racold hybrid system combining solar thermal absorption with high performance air heat source.',
+    features: ['Dual heating elements', 'Weatherproof control unit', 'Maximum energy efficiency rating'],
+    applications: ['Luxury Villas', 'Resorts', 'Wellness Centers']
+  },
+  {
+    id: 's-hp-kamal',
+    slug: 'kamal-solar-with-heat-pump',
+    name: 'KAMAL SOLAR WITH HEAT PUMP',
+    brand: 'KAMAL',
+    category: 'Solar with Heat Pump',
+    image: '/products/solar-heatpump-kamal.png',
+    shortDesc: 'Kamal hybrid solar heating system with integrated heat pump.',
+    fullDesc: 'Kamal hybrid system ensuring uninterrupted high volume hot water output for residential and light commercial projects.',
+    features: ['Heavy-duty hybrid design', 'Corrosion resistant construction', 'Auto changeover settings'],
+    applications: ['Homes', 'Hotels', 'Hostels']
+  },
+
+  // --- PRESSURE PUMPS (GRUNDFOS, KIRLOSKAR, V-GUARD, LUBI) ---
+  {
+    id: 'press-grundfos',
+    slug: 'grundfos-pressure-pump',
+    name: 'GRUNDFOS PRESSURE PUMP',
+    brand: 'GRUNDFOS',
+    category: 'Pressure Pump',
+    image: '/products/pressure-grundfos.png',
+    shortDesc: 'Premium Grundfos automatic water pressure booster system.',
+    fullDesc: 'Grundfos automatic pressure booster pump ensuring constant water pressure in luxury bathrooms, showers, and taps.',
+    features: ['Constant water pressure control', 'Ultra-quiet motor operation', 'Dry-run protection built-in'],
+    applications: ['Luxury Villas', 'Modern Bungalows', 'Commercial Kitchens']
+  },
+  {
+    id: 'press-kirloskar',
+    slug: 'kirloskar-pressure-pump',
+    name: 'KIRLOSKAR PRESSURE PUMP',
+    brand: 'KIRLOSKAR',
+    category: 'Pressure Pump',
+    image: '/products/pressure-kirloskar.png',
+    shortDesc: 'Kirloskar heavy-duty automatic water pressure booster pump.',
+    fullDesc: 'Kirloskar automatic pressure pump designed for reliable water boosting in residences and apartments.',
+    features: ['Robust cast-iron casing', 'Automatic pressure switch', 'Efficient power usage'],
+    applications: ['Independent Homes', 'Apartments', 'Taps & Showers']
+  },
+  {
+    id: 'press-vguard',
+    slug: 'v-guard-pressure-pump',
+    name: 'V GUARD PRESSURE PUMP',
+    brand: 'V GUARD',
+    category: 'Pressure Pump',
+    image: '/products/pressure-vguard.png',
+    shortDesc: 'V-Guard automatic pressure booster pump system.',
+    fullDesc: 'V-Guard automatic water pressure booster pump ensuring uniform flow across showers and taps simultaneously.',
+    features: ['Automatic ON/OFF operation', 'Quiet running motor', 'Thermal overload protection'],
+    applications: ['Multi-bathroom Houses', 'Booster Lines']
+  },
+  {
+    id: 'press-lubi',
+    slug: 'lubi-pressure-pump',
+    name: 'LUBI PRESSURE PUMP',
+    brand: 'LUBI',
+    category: 'Pressure Pump',
+    image: '/products/pressure-lubi.png',
+    shortDesc: 'Lubi reliable automatic water pressure booster pump.',
+    fullDesc: 'Lubi automatic pressure pump designed for efficient water pressure regulation in homes and commercial outlets.',
+    features: ['Compact design', 'Constant line pressure maintenance', 'Heavy-duty pump impeller'],
+    applications: ['Homes', 'Small Commercial Complexes']
+  },
+
+  // --- HOT WATER RE CIRCULATION PUMP (GRUNDFOS, V-GUARD) ---
+  {
+    id: 'recirc-grundfos',
+    slug: 'grundfos-hot-water-re-circulation-pump',
+    name: 'GRUNDFOS HOT WATER RE CIRCULATION PUMP',
+    brand: 'GRUNDFOS',
+    category: 'Hot Water Recirculation Pump',
+    image: '/products/recirc-grundfos.png',
+    shortDesc: 'Grundfos hot water recirculation system for instant hot water in taps.',
+    fullDesc: 'Grundfos hot water recirculation pump keeps hot water constantly moving through lines, eliminating wait time at the faucet.',
+    features: ['Instant hot water at any tap', 'Saves water from running down drain', 'Extremely low power consumption'],
+    applications: ['Villas', 'Hotels', 'Large Homes with long pipe runs']
+  },
+  {
+    id: 'recirc-vguard',
+    slug: 'v-guard-hot-water-re-circulation-pump',
+    name: 'V GUARD HOT WATER RE CIRCULATION PUMP',
+    brand: 'V GUARD',
+    category: 'Hot Water Recirculation Pump',
+    image: '/products/recirc-vguard.png',
+    shortDesc: 'V-Guard reliable hot water line recirculation pump.',
+    fullDesc: 'V-Guard recirculation pump keeps hot water circulating through pipelines to provide instant hot water.',
+    features: ['Instant line heating', 'Quiet motor operation', 'Compact size'],
+    applications: ['Residences', 'Villa Complexes']
+  },
+
+  // --- SUMP PUMPS (KIRLOSKAR, TEXMO, GRUNDFOS) ---
+  {
+    id: 'sump-kirloskar',
+    slug: 'kirloskar-sump-pump',
+    name: 'KIRLOSKAR SUMP PUMP',
+    brand: 'KIRLOSKAR',
+    category: 'Sump Pump',
+    image: '/products/sump-kirloskar.png',
+    shortDesc: 'Kirloskar heavy-duty submersible sump pump.',
+    fullDesc: 'Kirloskar submersible pump designed for dewatering sumps, basements, and raw water transfer.',
+    features: ['Submersible cast iron body', 'Heavy-duty motor impeller', 'High discharge flow rate'],
+    applications: ['Underground Sumps', 'Basement Drainage', 'Water Tanks']
+  },
+  {
+    id: 'sump-texmo',
+    slug: 'texmo-sump-pump',
+    name: 'TEXMO SUMP PUMP',
+    brand: 'TEXMO',
+    category: 'Sump Pump',
+    image: '/products/sump-texmo.png',
+    shortDesc: 'Texmo taro heavy-duty submersible sump pump.',
+    fullDesc: 'Texmo submersible sump pump engineered for high-volume drainage, dewatering, and sump clearing.',
+    features: ['Corrosion-resistant casing', 'Submersible reliability', 'Low maintenance design'],
+    applications: ['Industrial Sumps', 'Commercial Buildings', 'Water Storage Clearing']
+  },
+  {
+    id: 'sump-grundfos',
+    slug: 'grundfos-sump-pump',
+    name: 'GRUNDFOS SUMP PUMP',
+    brand: 'GRUNDFOS',
+    category: 'Sump Pump',
+    image: '/products/sump-grundfos.png',
+    shortDesc: 'Grundfos high-reliability submersible sump and drainage pump.',
+    fullDesc: 'Grundfos submersible pump constructed with stainless steel parts for basement dewatering and water transfer.',
+    features: ['Stainless steel shaft and casing', 'Automatic float switch control', 'Built-in thermal overload protection'],
+    applications: ['Basements', 'Stormwater pits', 'Underground Water Sumps']
   }
 ];
 
@@ -472,8 +819,13 @@ export const CATEGORIES = [
   'Carbon Filter',
   'Iron Filter',
   'RO Purifier',
+  'Commercial RO',
   'Heat Pump',
-  'Commercial RO'
+  'Solar Water Heater',
+  'Solar with Heat Pump',
+  'Pressure Pump',
+  'Hot Water Recirculation Pump',
+  'Sump Pump'
 ] as const;
 
 export const COMPANY_DETAILS = {

@@ -29,33 +29,33 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
       {/* 2. Hero Centered Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
         
-        {/* Authorised ZERO B Partner Badge */}
+        {/* Authorised Partner Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tgmc-navy/95 text-white backdrop-blur-md border border-cyan-300/40 text-xs font-extrabold shadow-2xl animate-fadeIn">
           <Award className="w-4 h-4 text-tgmc-yellow shrink-0" />
-          <span className="uppercase tracking-wider">ZERO B Pure Water Solutions | Sales & Service Partner</span>
+          <span className="uppercase tracking-wider">Complete Water Management Partner | Sales & Service</span>
         </div>
 
         {/* Top Tagline & Main Title Box */}
         <div className="space-y-3 bg-tgmc-navy/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-cyan-300/40 shadow-card max-w-4xl mx-auto">
           <p className="text-xs sm:text-sm font-black uppercase tracking-[0.25em] text-cyan-300 drop-shadow">
-            PURE WATER. BETTER LIFE. RELIABLE ZERO B SOLUTIONS.
+            PURE WATER. BETTER LIFE. RELIABLE SOLUTIONS.
           </p>
 
           {/* Main Hero Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-[1.15] text-white drop-shadow-lg">
-            Complete Range of <br className="hidden sm:inline" />
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight leading-[1.2] text-white drop-shadow-lg">
+            Complete Range of Water Solution - Normal - Hot - Cold - <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-sky-200">
-              ZERO B WATER PURIFIERS, SOFTENERS & HEAT PUMPS
+              Water softener - Heat Pump - Pressure Pump - Solar - RO Purifiers - Uv Panels .. And Many More.
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base lg:text-lg text-slate-100 font-medium leading-relaxed pt-2">
-            Ion Exchange ZERO B automatic softeners, sand & carbon filters, drinking RO purifiers, and eco-friendly heat pumps for <span className="text-cyan-300 font-bold">Bangalore & All over Karnataka</span>.
+          <p className="text-base sm:text-xl lg:text-2xl text-cyan-300 font-extrabold tracking-wide pt-2">
+            One Stop Solution.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs text-cyan-200 font-semibold">
             <span className="flex items-center gap-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> 100% Genuine ZERO B
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> 100% Genuine Brands
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
             to="/products"
             className="w-full sm:w-auto px-8 py-4 text-sm font-bold text-slate-950 bg-white hover:bg-slate-100 rounded-full shadow-2xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group cursor-pointer border border-cyan-200"
           >
-            <span>Explore ZERO B Products</span>
+            <span>Explore All Products</span>
             <ChevronRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
           </Link>
 
@@ -87,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
           </button>
 
           <a
-            href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent('Hello TGMC, I am interested in ZERO B water purifiers and softeners.')}`}
+            href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent('Hello TGMC, I am interested in your water solutions.')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-7 py-4 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-full shadow-2xl transition-all flex items-center justify-center gap-2"
@@ -103,7 +103,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
             <Droplets className="w-5 h-5 text-cyan-300 shrink-0" />
             <div className="text-left">
               <h4 className="text-xs font-bold text-white leading-tight">Pure Water</h4>
-              <p className="text-[10px] text-slate-200">ZERO B Purity & Tech</p>
+              <p className="text-[10px] text-slate-200">RO Purification & Softeners</p>
             </div>
           </div>
 
