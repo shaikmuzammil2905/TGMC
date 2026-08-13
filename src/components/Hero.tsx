@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnquiry }) => {
           </h1>
 
           <p className="text-sm sm:text-base lg:text-lg text-slate-100 font-medium leading-relaxed pt-2">
-            Complete water purification, softeners, heat pumps, solar water heaters, and commercial RO systems for homes and businesses in <span className="text-cyan-300 font-bold">Hesaragatta Road, Bangalore – 560073</span>.
+            Complete water purification, softeners, heat pumps, solar water heaters, and commercial RO systems for <span className="text-cyan-300 font-bold">Business in Bangalore & All over the Karnataka</span>.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs text-cyan-200 font-semibold">

@@ -47,13 +47,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
-                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-tgmc-navy font-heading">
+                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-tgmc-navy font-heading" title="The General Material Corporation">
                   TGMC
                 </span>
                 <span className="hidden sm:inline-block text-[10px] uppercase font-bold text-tgmc-blue bg-tgmc-light px-2 py-0.5 rounded-full border border-tgmc-blue/20">
                   Sales & Service
                 </span>
               </div>
+              <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider hidden lg:block -mt-0.5">
+                The General Material Corporation
+              </span>
               <span className="text-[11px] sm:text-xs text-slate-500 font-medium tracking-tight">
                 Pure Water. Better Life.
               </span>

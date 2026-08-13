@@ -13,6 +13,7 @@ export interface Product {
   features?: string[];
   applications?: string[];
   isAuthorisedDistributor?: boolean;
+  price?: string;
 }
 
 export interface Brand {
@@ -88,6 +89,24 @@ export const BRANDS: Brand[] = [
     description: 'Heavy-duty reverse osmosis plants ranging from 25 LPH up to 1000 LPH for commercial and industrial water purity.',
     categories: ['Commercial RO'],
     logoText: 'COMMERCIAL RO'
+  },
+  {
+    id: 'supreme-solar',
+    name: 'SUPREME SOLAR',
+    tagline: 'Premium Solar Heating Solutions',
+    isAuthorised: false,
+    description: 'Supreme Solar is a leading name in solar water heaters, offering high-efficiency evacuated tube collector systems suitable for home and commercial use.',
+    categories: ['Solar Water Heater'],
+    logoText: 'SUPREME SOLAR'
+  },
+  {
+    id: 'non-branded',
+    name: 'NON-BRANDED',
+    tagline: 'Standard Reliable Solar Products & Spares',
+    isAuthorised: false,
+    description: 'Affordable, high-quality non-branded solar heaters, makeup tanks, and replacement parts built to standard specifications.',
+    categories: ['Solar Water Heater'],
+    logoText: 'NON-BRANDED'
   }
 ];
 
@@ -605,6 +624,230 @@ export const PRODUCTS: Product[] = [
       'LED tank level status indicator indicators'
     ],
     applications: ['Apartments', 'Independent Houses', 'Commercial Buildings']
+  },
+  // --- SUPREME SOLAR WATER HEATERS ---
+  {
+    id: 'supreme-solar-red',
+    slug: 'supreme-solar-water-heater-red',
+    name: 'SUPREME SOLAR WATER HEATER (RED TANK)',
+    brand: 'SUPREME SOLAR',
+    category: 'Solar Water Heater',
+    image: '/products/supreme-solar-red.png',
+    shortDesc: 'Premium Supreme Solar evacuated tube collector (ETC) water heater with red outer tank coating.',
+    fullDesc: 'Supreme Solar Water Heater features high-grade glass evacuated tubes and a durable, aesthetically pleasing red-coated outer hot water tank. Offers excellent heat retention and rapid heating under sunlight.',
+    features: [
+      'High-grade red powder coated outer tank',
+      'Evacuated Glass Tube (ETC) solar technology',
+      'Thick high-density PUF insulation for overnight heat retention',
+      'Robust support stand configuration'
+    ],
+    applications: ['Independent Homes', 'Apartment Rooftops', 'Hostels', 'Gated Communities']
+  },
+  {
+    id: 'supreme-solar-blue-white',
+    slug: 'supreme-solar-water-heater-blue-white',
+    name: 'SUPREME SOLAR WATER HEATER (BLUE & WHITE TANK)',
+    brand: 'SUPREME SOLAR',
+    category: 'Solar Water Heater',
+    image: '/products/supreme-solar-blue-white.png',
+    shortDesc: 'High-efficiency Supreme Solar ETC water heater with blue and white color protection tank.',
+    fullDesc: 'Premium Supreme Solar rooftop solar water heater designed with dual blue and white outer tank finish. Built with high heat absorption glass tubes to provide continuous clean hot water.',
+    features: [
+      'Stunning blue and white protective tank finish',
+      'Evacuated Glass Tube (ETC) technology',
+      'Inner tank with rust-resistant protection coating',
+      'Heavy-duty mounting structure'
+    ],
+    applications: ['Residential Villas', 'Multi-storey Buildings', 'Hotels & Lodges']
+  },
+  // --- NON-BRANDED SOLAR WATER HEATERS & ACCESSORIES ---
+  {
+    id: 'etc-assistant-tank-ss',
+    slug: 'non-branded-etc-assistant-tank-stainless-steel',
+    name: 'NON-BRANDED ETC SOLAR ASSISTANT TANK (STAINLESS STEEL)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-assistant-tank-ss.png',
+    price: '12500/-',
+    shortDesc: 'Stainless steel helper makeup tank for solar water heaters to regulate inlet water pressure.',
+    fullDesc: 'Stainless Steel Assistant Tank (also known as a makeup or header feed tank) for solar water heaters. It acts as an inlet control tank, reducing raw cold water pressure to prevent damage to the main collector tank. Essential for installations with booster pumps or high overhead tanks.',
+    features: [
+      'High-grade rustproof Stainless Steel construction',
+      'Internal heavy-duty copper float valve for level regulation',
+      'Relieves excess pressure on main solar tank',
+      'Easy integration on top of main solar water heater'
+    ],
+    applications: ['Solar Water Heaters with High Pressure Inlet', 'Booster Pump Solar Systems']
+  },
+  {
+    id: 'etc-solar-heater-ss',
+    slug: 'non-branded-etc-solar-water-heater-stainless-steel',
+    name: 'NON-BRANDED ETC SOLAR WATER HEATER (STAINLESS STEEL TANK)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-heater-ss.png',
+    shortDesc: 'Affordable, high-performance ETC solar water heater with stainless steel outer tank.',
+    fullDesc: 'Standard non-branded Evacuated Tube Collector (ETC) solar water heater featuring an all-stainless steel outer tank body. Provides excellent resistance to rain and outdoor weather conditions at an economical price point.',
+    features: [
+      'Rust-proof Stainless Steel outer and inner tanks',
+      'Three-target vacuum tubes for maximum sun absorption',
+      'Eco-friendly PUF insulation layer',
+      'Sturdy galvanized steel stand framework'
+    ],
+    applications: ['Homes', 'Farm Houses', 'Budget Housing Projects']
+  },
+  {
+    id: 'etc-solar-manifold-header',
+    slug: 'non-branded-solar-water-heater-manifold-header',
+    name: 'NON-BRANDED SOLAR WATER HEATER MANIFOLD (HEADER BOX)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-manifold-header.png',
+    shortDesc: 'Replacement solar manifold header collector box for ETC solar tubes.',
+    fullDesc: 'Heavy-duty non-branded solar water heater manifold header collector box. Houses the inlet/outlet headers for evacuated glass tubes, collecting heated water to transfer it to the main storage tank. Ideal for replacement or custom-built solar arrays.',
+    features: [
+      'Corrosion resistant copper/SS header core',
+      'Precision welded tube socket rings for leak prevention',
+      'Insulated manifold cover prevents thermal loss',
+      'Standard sizes compatible with 58mm ETC tubes'
+    ],
+    applications: ['Solar System Repairs', 'Custom Solar Collector Arrays', 'Header Replacements']
+  },
+  {
+    id: 'etc-assistant-tank-ss-alt',
+    slug: 'non-branded-etc-assistant-tank-stainless-steel-alt',
+    name: 'NON-BRANDED STAINLESS STEEL SOLAR ASSISTANT TANK (HEAVY DUTY)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-assistant-tank-ss-alt.png',
+    shortDesc: 'Heavy-duty stainless steel makeup feeder tank for high water volume solar systems.',
+    fullDesc: 'Premium grade heavy-duty Stainless Steel solar assistant feeder tank. It regulates and matches high-volume cold water input to standard solar heaters, preventing high-pressure expansion leaks or tank ruptures.',
+    features: [
+      'Reinforced SS body shell',
+      'High-flow brass mechanical float valve',
+      'Ensures continuous steady flow at standard gravity feed pressure',
+      'Universal mounting brackets'
+    ],
+    applications: ['Large Solar Water Heaters', 'Commercial Solar Installations']
+  },
+  {
+    id: 'etc-solar-heater-red',
+    slug: 'non-branded-etc-solar-water-heater-red-tank',
+    name: 'NON-BRANDED ETC SOLAR WATER HEATER (RED COATED TANK)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-heater-red.png',
+    shortDesc: 'Standard ETC solar water heater with protective red powder coated outer tank.',
+    fullDesc: 'Economic non-branded ETC solar water heating system equipped with a weather-shielding red powder coated outer steel tank. Offers reliable hot water output with low maintenance.',
+    features: [
+      'Red powder coated weatherproof outer tank cover',
+      'High efficiency three-layer evacuated tubes',
+      'Sacrificial anode to protect against hard water scaling',
+      'Sturdy pre-painted structural steel stand'
+    ],
+    applications: ['Independent Houses', 'Budget Apartments', 'Cottages']
+  },
+  {
+    id: 'etc-assistant-tank-white',
+    slug: 'non-branded-etc-assistant-tank-powder-coated-white',
+    name: 'NON-BRANDED POWDER COATED SOLAR ASSISTANT TANK (WHITE)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-assistant-tank-white.png',
+    shortDesc: 'Powder-coated white finish solar water heater assistant feeder tank.',
+    fullDesc: 'White powder-coated steel outer finish assistant makeup tank. Serves as a water level control tank to maintain balanced inlet gravity feed pressure, extending the service life of solar heater systems.',
+    features: [
+      'Powder-coated white corrosion-proof outer shell',
+      'Inner food-grade stainless steel liner',
+      'Precision mechanical float switch control',
+      'Threaded inlet/outlet connections'
+    ],
+    applications: ['Standard Solar Water Heaters', 'Gravity Feed Installations']
+  },
+  {
+    id: 'etc-solar-heater-ss-heavy',
+    slug: 'non-branded-etc-solar-water-heater-stainless-steel-heavy-duty',
+    name: 'NON-BRANDED ETC SOLAR WATER HEATER (STAINLESS STEEL TANK - HEAVY INDUSTRIAL)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-heater-ss-heavy.png',
+    shortDesc: 'Heavy-duty industrial grade stainless steel ETC solar water heater.',
+    fullDesc: 'High capacity heavy-duty non-branded ETC solar water heater with polished stainless steel tank and robust framing. Designed to withstand industrial water usage and high thermal demands.',
+    features: [
+      'Extra thick Stainless Steel inner and outer tanks',
+      'High-absorption borosilicate glass vacuum tubes',
+      'Heavy-gauge hot-dip galvanized mounting stand',
+      'Supports high water flow configuration'
+    ],
+    applications: ['Commercial Buildings', 'Industrial Laundries', 'Hospitals', 'Hostels']
+  },
+  {
+    id: 'etc-solar-heater-red-premium',
+    slug: 'non-branded-etc-solar-water-heater-red-tank-premium',
+    name: 'NON-BRANDED ETC SOLAR WATER HEATER (RED COATED TANK - PREMIUM)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-heater-red-premium.png',
+    shortDesc: 'Premium grade ETC solar water heater with glossy red tank finish.',
+    fullDesc: 'High efficiency non-branded solar water heater with a premium gloss red outer coating and high thermal retention insulation. Engineered for superior durability and high-temperature water output.',
+    features: [
+      'Premium glossy red tank finish with extra anti-rust layer',
+      'Rapid heating evacuated tube collector cells',
+      'Overnight heat loss less than 4 degrees Celsius',
+      'Adjustable slope mounting frame'
+    ],
+    applications: ['Luxury Residences', 'Villas', 'Row Houses']
+  },
+  {
+    id: 'etc-solar-heater-blue',
+    slug: 'non-branded-etc-solar-water-heater-blue-tank',
+    name: 'NON-BRANDED ETC SOLAR WATER HEATER (BLUE COATED TANK)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-heater-blue.png',
+    shortDesc: 'Standard ETC solar water heater with blue protective coated outer tank.',
+    fullDesc: 'Reliable non-branded ETC solar water heater featuring a blue protective powder-coated outer casing. Blends beautifully with rooftop aesthetics and provides high efficiency water heating.',
+    features: [
+      'Glossy blue powder coated outer tank body',
+      'Three-target high temperature solar tubes',
+      'High density polyurethane insulation',
+      'Galvanized framing and hardware'
+    ],
+    applications: ['Homes', 'Clinics', 'Residential Penthouses']
+  },
+  {
+    id: 'etc-solar-heater-blue-large',
+    slug: 'non-branded-etc-solar-water-heater-blue-tank-heavy-duty',
+    name: 'NON-BRANDED ETC SOLAR WATER HEATER (BLUE COATED TANK - HEAVY DUTY)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-heater-blue-large.png',
+    shortDesc: 'Heavy-duty high-volume solar water heater with blue outer tank casing.',
+    fullDesc: 'High-volume non-branded ETC solar water heater with reinforced blue powder-coated casing and dual backup ports. Perfect for households requiring substantial hot water capacity.',
+    features: [
+      'Reinforced blue powder coated tank housing',
+      'Premium thick insulation layer',
+      'Compatible with auxiliary electrical heating element',
+      'Robust cross-braced support structure'
+    ],
+    applications: ['Large Homes', 'PG Hostels', 'Small Guest Houses']
+  },
+  {
+    id: 'etc-solar-heater-white',
+    slug: 'non-branded-etc-solar-water-heater-white-tank',
+    name: 'NON-BRANDED ETC SOLAR WATER HEATER (WHITE COATED TANK)',
+    brand: 'NON-BRANDED',
+    category: 'Solar Water Heater',
+    image: '/products/etc-solar-heater-white.png',
+    shortDesc: 'Standard ETC solar water heater with white powder coated outer tank casing.',
+    fullDesc: 'Clean and elegant non-branded ETC solar water heater with white powder-coated outer body. Delivers high heat efficiency and fits neatly into light-colored roof environments.',
+    features: [
+      'White powder-coated steel outer tank wrap',
+      'Borosilicate glass evacuated tubes',
+      'Optimal gravity flow output design',
+      'Rust-proof steel assembly structure'
+    ],
+    applications: ['Modern Homes', 'Rooftop Gardens', 'Bungalows']
   }
 ];
 

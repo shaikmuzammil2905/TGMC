@@ -20,7 +20,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
                 <img src="/logo.png" alt="TGMC Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <span className="text-2xl font-extrabold text-white font-heading tracking-tight">TGMC</span>
+                <span className="text-2xl font-extrabold text-white font-heading tracking-tight" title="The General Material Corporation">TGMC</span>
+                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider leading-none mt-0.5 mb-1">
+                  The General Material Corporation
+                </p>
                 <p className="text-xs text-tgmc-cyan font-medium">{COMPANY_DETAILS.tagline}</p>
               </div>
             </div>

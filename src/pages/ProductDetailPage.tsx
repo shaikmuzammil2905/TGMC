@@ -140,13 +140,15 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onOpenEnqu
                 <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between">
                   <div>
                     <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">Pricing</span>
-                    <h4 className="text-lg font-bold text-tgmc-navy font-heading">Get Best Price & Quotation</h4>
+                    <h4 className="text-lg font-bold text-tgmc-navy font-heading">
+                      {product.price ? `Price: ${product.price}` : 'Get Best Price & Quotation'}
+                    </h4>
                   </div>
                   <button
                     onClick={() => onOpenEnquiry(product.name)}
                     className="px-4 py-2 text-xs font-bold text-white bg-tgmc-blue hover:bg-tgmc-navy rounded-xl transition-all shadow-sm cursor-pointer"
                   >
-                    Request Quote
+                    {product.price ? 'Enquire / Order' : 'Request Quote'}
                   </button>
                 </div>
 

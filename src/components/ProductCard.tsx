@@ -10,7 +10,7 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenEnquiry }) => {
   return (
-    <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1">
+    <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1 animate-fade-in-up">
       
       {/* Number Badge from UI Reference (1..7) */}
       {product.numberTag && (
@@ -33,11 +33,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenEnquiry
       </div>
 
       {/* Product Image Container */}
-      <Link to={`/product/${product.slug}`} className="block relative pt-[80%] bg-slate-50/60 overflow-hidden group-hover:bg-slate-100/50 transition-colors">
+      <Link to={`/product/${product.slug}`} className="block relative pt-[85%] bg-white border-b border-slate-100 overflow-hidden transition-colors">
         <img
           src={product.image}
           alt={product.name}
-          className="absolute inset-0 w-full h-full object-contain p-6 transform group-hover:scale-105 transition-transform duration-500"
+          className="absolute inset-0 w-full h-full object-contain p-3 sm:p-4 transform group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
         />
       </Link>
@@ -74,9 +74,15 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenEnquiry
         {/* Pricing & CTAs */}
         <div className="pt-3 border-t border-slate-100 space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md">
-              Get Best Price
-            </span>
+            {product.price ? (
+              <span className="text-xs font-black text-slate-950 bg-tgmc-yellow px-2.5 py-1 rounded-md shadow-sm border border-amber-500/20">
+                Price: {product.price}
+              </span>
+            ) : (
+              <span className="text-xs font-bold text-slate-700 bg-slate-100 px-2.5 py-1 rounded-md">
+                Get Best Price
+              </span>
+            )}
             <Link
               to={`/product/${product.slug}`}
               className="inline-flex items-center gap-1 text-xs font-semibold text-tgmc-navy hover:text-tgmc-blue transition-colors"

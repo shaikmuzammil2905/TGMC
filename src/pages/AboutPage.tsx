@@ -20,7 +20,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenEnquiry }) => {
             Pure Water. Better Life.
           </h1>
           <p className="text-sm text-slate-600 mt-2">
-            TGMC is a dedicated sales and service enterprise dealing in water purification systems, softeners, RO systems, heat pumps, solar water heaters, and pressure pumps based in <strong>Hesaragatta Road, Bangalore – 560073</strong>.
+            <strong>TGMC (The General Material Corporation)</strong> is a dedicated sales and service enterprise dealing in water purification systems, softeners, RO systems, heat pumps, solar water heaters, and pressure pumps based in <strong>Hesaragatta Road, Bangalore – 560073</strong>.
           </p>
         </div>
 

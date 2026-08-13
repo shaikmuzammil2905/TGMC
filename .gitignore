@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary image files in root
+/image*.png
+/image copy*.png
+/TMC*.png
+/TMC (1).png
