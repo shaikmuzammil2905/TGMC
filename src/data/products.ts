@@ -3,7 +3,7 @@ export interface Product {
   slug: string;
   name: string;
   brand: string;
-  category: 'Water Softener' | 'Sand Filter' | 'Carbon Filter' | 'Iron Filter' | 'RO Purifier' | 'Commercial RO' | 'Heat Pump' | 'Solar Water Heater' | 'Solar with Heat Pump' | 'Pressure Pump' | 'Hot Water Recirculation Pump' | 'Sump Pump';
+  category: 'Water Softener' | 'Sand Filter' | 'Carbon Filter' | 'Iron Filter' | 'RO Purifier' | 'Commercial RO' | 'Heat Pump' | 'Solar Water Heater' | 'Solar with Heat Pump' | 'Pressure Pump' | 'Hot Water Recirculation Pump' | 'Sump Pump' | 'Under the Sink RO' | 'Wall Mounted RO' | 'Water Level Controller' | 'Solar PV Panel' | 'Commercial Heat Pump';
   image: string;
   shortDesc: string;
   fullDesc: string;
@@ -33,7 +33,7 @@ export const BRANDS: Brand[] = [
     tagline: 'Pure Water Solutions | Ion Exchange',
     isAuthorised: true,
     description: 'Pioneers in automatic water softening, advanced filtration, drinking RO purifiers, and commercial water systems.',
-    categories: ['Water Softener', 'Sand Filter', 'Carbon Filter', 'Iron Filter', 'RO Purifier', 'Commercial RO', 'Heat Pump'],
+    categories: ['Water Softener', 'Sand Filter', 'Carbon Filter', 'Iron Filter', 'RO Purifier', 'Commercial RO', 'Heat Pump', 'Under the Sink RO', 'Wall Mounted RO'],
     logoText: 'ZERO B'
   },
   {
@@ -41,8 +41,8 @@ export const BRANDS: Brand[] = [
     name: 'DELTA GREEN',
     tagline: 'High-Efficiency Heat Pump Systems',
     isAuthorised: true,
-    description: 'TGMC is an Authorised Distributor for Delta Green residential and commercial heat pump water heaters.',
-    categories: ['Heat Pump'],
+    description: 'TGMC is an Authorised Distributor for Delta Green residential and commercial air source heat pump water heaters.',
+    categories: ['Heat Pump', 'Commercial Heat Pump'],
     logoText: 'DELTA GREEN'
   },
   {
@@ -66,10 +66,10 @@ export const BRANDS: Brand[] = [
   {
     id: 'emmvee-solarizer',
     name: 'EMMVEE SOLARIZER',
-    tagline: 'Premium Solar Water Heating',
+    tagline: 'Premium Solar Solutions',
     isAuthorised: false,
-    description: 'German-engineered solar hot water systems built for maximum heat absorption and durability.',
-    categories: ['Solar Water Heater', 'Solar with Heat Pump'],
+    description: 'German-engineered solar hot water systems and monocrystalline PV panels built for maximum efficiency and durability.',
+    categories: ['Solar Water Heater', 'Solar with Heat Pump', 'Solar PV Panel'],
     logoText: 'EMMVEE SOLARIZER'
   },
   {
@@ -95,8 +95,8 @@ export const BRANDS: Brand[] = [
     name: 'GRUNDFOS',
     tagline: 'Global Leader in Advanced Pump Solutions',
     isAuthorised: false,
-    description: 'World-class automatic water pressure booster systems, sump pumps, and recirculation pump systems.',
-    categories: ['Pressure Pump', 'Hot Water Recirculation Pump', 'Sump Pump'],
+    description: 'World-class automatic water pressure booster systems, sump pumps, recirculation pump systems, and controllers.',
+    categories: ['Pressure Pump', 'Hot Water Recirculation Pump', 'Sump Pump', 'Water Level Controller'],
     logoText: 'GRUNDFOS'
   },
   {
@@ -125,6 +125,69 @@ export const BRANDS: Brand[] = [
     description: 'Taro pumps offering heavy-duty submersible sump pumps and water transfer systems.',
     categories: ['Sump Pump'],
     logoText: 'TEXMO'
+  },
+  {
+    id: 'ao-smith',
+    name: 'AO SMITH',
+    tagline: 'Innovation Has a Name',
+    isAuthorised: false,
+    description: 'Premium quality under-sink RO water purifiers and storage water heaters.',
+    categories: ['Under the Sink RO'],
+    logoText: 'AO SMITH'
+  },
+  {
+    id: 'kent',
+    name: 'KENT',
+    tagline: 'House of Purity',
+    isAuthorised: false,
+    description: 'India\'s leading brand of wall-mounted drinking water RO purifiers.',
+    categories: ['Wall Mounted RO'],
+    logoText: 'KENT'
+  },
+  {
+    id: 'aqua',
+    name: 'AQUA',
+    tagline: 'Pure & Healthy Drinking Water',
+    isAuthorised: false,
+    description: 'High reliability cost-effective wall-mounted RO and UV water purifiers.',
+    categories: ['Wall Mounted RO'],
+    logoText: 'AQUA'
+  },
+  {
+    id: 'non-brand',
+    name: 'NON BRAND',
+    tagline: 'Assembled Custom Solutions',
+    isAuthorised: false,
+    description: 'High performance cost-effective assembled water purifiers and controllers tailored to your budget.',
+    categories: ['Wall Mounted RO', 'Water Level Controller'],
+    logoText: 'NON BRAND'
+  },
+  {
+    id: 'adani',
+    name: 'ADANI',
+    tagline: 'Powering a Green Future',
+    isAuthorised: false,
+    description: 'World-class Adani solar photovoltaic panels for residential and commercial rooftop solar projects.',
+    categories: ['Solar PV Panel'],
+    logoText: 'ADANI'
+  },
+  {
+    id: 'neo',
+    name: 'NEO',
+    tagline: 'Heavy-Duty Commercial Hot Water',
+    isAuthorised: false,
+    description: 'High performance Neo commercial heat pumps for large capacity water heating.',
+    categories: ['Commercial Heat Pump'],
+    logoText: 'NEO'
+  },
+  {
+    id: 'other-brands',
+    name: 'OTHER BRANDS',
+    tagline: 'Flexible Systems & Spares',
+    isAuthorised: false,
+    description: 'We source and service high-quality parts, PV panels, and heat pumps from various top-tier industry brands.',
+    categories: ['Solar PV Panel', 'Commercial Heat Pump'],
+    logoText: 'OTHER BRANDS'
   }
 ];
 
@@ -264,7 +327,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Luxury Residences', 'Health Enthusiasts', 'Wellness Centers']
   },
 
-  // --- ZERO B DRINKING WATER PURIFIERS (PDF PAGE 2 & 3) ---
+  // --- ZERO B DRINKING WATER PURIFIERS ---
   {
     id: 'zb-uv-grande-2x',
     slug: 'zero-b-uv-grande-2x',
@@ -535,7 +598,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Institutes', 'Offices', 'Large Families', 'Factories']
   },
 
-  // --- HEAT PUMPS (DELTA GREEN, V-GUARD, ZERO B, RACOLD) ---
+  // --- HEAT PUMPS ---
   {
     id: 'hp-deltagreen',
     slug: 'delta-green-heat-pump',
@@ -585,7 +648,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Luxury Villas', 'Spas', 'Hotels', 'Apartments']
   },
 
-  // --- SOLAR WATER HEATERS (EMMVEE SOLARIZER, V-GUARD, RACOLD, SUPREME, KAMAL) ---
+  // --- SOLAR WATER HEATERS ---
   {
     id: 'swh-emmvee',
     slug: 'emmvee-solarizer-solar-water-heater',
@@ -647,7 +710,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Homes', 'Villas', 'Commercial Buildings']
   },
 
-  // --- SOLAR WITH HEAT PUMP (EMMVEE SOLARIZER, V-GUARD, RACOLD, KAMAL) ---
+  // --- SOLAR WITH HEAT PUMP ---
   {
     id: 's-hp-emmvee',
     slug: 'emmvee-solarizer-solar-with-heat-pump',
@@ -697,7 +760,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Homes', 'Hotels', 'Hostels']
   },
 
-  // --- PRESSURE PUMPS (GRUNDFOS, KIRLOSKAR, V-GUARD, LUBI) ---
+  // --- PRESSURE PUMPS ---
   {
     id: 'press-grundfos',
     slug: 'grundfos-pressure-pump',
@@ -747,7 +810,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Homes', 'Small Commercial Complexes']
   },
 
-  // --- HOT WATER RE CIRCULATION PUMP (GRUNDFOS, V-GUARD) ---
+  // --- HOT WATER RE CIRCULATION PUMP ---
   {
     id: 'recirc-grundfos',
     slug: 'grundfos-hot-water-re-circulation-pump',
@@ -773,7 +836,7 @@ export const PRODUCTS: Product[] = [
     applications: ['Residences', 'Villa Complexes']
   },
 
-  // --- SUMP PUMPS (KIRLOSKAR, TEXMO, GRUNDFOS) ---
+  // --- SUMP PUMPS ---
   {
     id: 'sump-kirloskar',
     slug: 'kirloskar-sump-pump',
@@ -809,6 +872,184 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Grundfos submersible pump constructed with stainless steel parts for basement dewatering and water transfer.',
     features: ['Stainless steel shaft and casing', 'Automatic float switch control', 'Built-in thermal overload protection'],
     applications: ['Basements', 'Stormwater pits', 'Underground Water Sumps']
+  },
+
+  // --- UNDER THE SINK RO ---
+  {
+    id: 'us-zerob',
+    slug: 'zero-b-under-the-sink-ro-purifier',
+    name: 'ZERO B UNDER THE SINK DRINKING RO PURIFIER',
+    brand: 'ZERO B',
+    category: 'Under the Sink RO',
+    image: '/products/under-sink-zerob.png',
+    shortDesc: 'Zero B concealed under-counter RO drinking water purifier.',
+    fullDesc: 'Space saving Zero B under-the-sink RO purifier with high output filtration, dedicated faucet, and pressurized storage tank.',
+    features: ['Concealed space-saving design', 'Pressurized water storage', 'Dedicated chrome faucet'],
+    applications: ['Modular Kitchens', 'Homes', 'Offices']
+  },
+  {
+    id: 'us-aosmith',
+    slug: 'ao-smith-under-the-sink-ro-purifier',
+    name: 'AO SMITH UNDER THE SINK DRINKING RO PURIFIER',
+    brand: 'AO SMITH',
+    category: 'Under the Sink RO',
+    image: '/products/under-sink-aosmith.png',
+    shortDesc: 'AO Smith premium under-counter RO purifier.',
+    fullDesc: 'High recovery under-the-sink RO water purifier from AO Smith. Designed for modern modular kitchens with digital alarms.',
+    features: ['High recovery green technology', 'Concealed placement', 'Digital indicator faucet'],
+    applications: ['Modular Kitchens', 'Villas']
+  },
+
+  // --- WALL MOUNTED RO ---
+  {
+    id: 'wm-zerob',
+    slug: 'zero-b-wall-mounted-ro-purifier',
+    name: 'ZERO B WALL MOUNTED RO PURIFIER',
+    brand: 'ZERO B',
+    category: 'Wall Mounted RO',
+    image: '/products/wall-mounted-zerob.png',
+    shortDesc: 'Zero B Magna Plus premium wall-mounted RO water purifier.',
+    fullDesc: 'Zero B Magna Plus domestic wall-mounted drinking water purifier featuring multi-stage filtration and mineral enricher.',
+    features: ['Elegant wall mount cabinet', 'Minera Boost cartridge', 'High recovery RO technology'],
+    applications: ['Home Kitchens', 'Offices']
+  },
+  {
+    id: 'wm-kent',
+    slug: 'kent-wall-mounted-ro-purifier',
+    name: 'KENT WALL MOUNTED RO PURIFIER',
+    brand: 'KENT',
+    category: 'Wall Mounted RO',
+    image: '/products/wall-mounted-kent.png',
+    shortDesc: 'Kent wall-mountable mineral RO water purifier.',
+    fullDesc: 'Kent multi-stage wall-mounted RO water purifier with built-in TDS controller to retain essential natural minerals.',
+    features: ['TDS Controller module', 'Double purification RO+UV+UF', 'Transparent storage tank'],
+    applications: ['Kitchens', 'Clinics', 'Schools']
+  },
+  {
+    id: 'wm-aqua',
+    slug: 'aqua-wall-mounted-ro-purifier',
+    name: 'AQUA WALL MOUNTED RO PURIFIER',
+    brand: 'AQUA',
+    category: 'Wall Mounted RO',
+    image: '/products/wall-mounted-aqua.png',
+    shortDesc: 'Aqua compact wall-mounted drinking water RO purifier.',
+    fullDesc: 'High performance economic wall-mounted RO system featuring sediment, carbon, and membrane filtration.',
+    features: ['Compact cabinet', 'Budget-friendly pricing', 'Easy cartridge replacement'],
+    applications: ['Homes', 'Rentals']
+  },
+  {
+    id: 'wm-nonbrand',
+    slug: 'non-brand-assembled-wall-mounted-ro-purifier',
+    name: 'NON BRAND WALL MOUNTED RO PURIFIER',
+    brand: 'NON BRAND',
+    category: 'Wall Mounted RO',
+    image: '/products/wall-mounted-nonbrand.png',
+    shortDesc: 'Custom assembled wall-mounted drinking RO purifier.',
+    fullDesc: 'Highly cost-effective custom-assembled wall mounted water purifier, using high-quality industry components.',
+    features: ['Custom filtration stage configuration', 'High-quality components', 'Economical maintenance costs'],
+    applications: ['Homes', 'Small Shops', 'Staff Rooms']
+  },
+
+  // --- WATER LEVEL CONTROLLER ---
+  {
+    id: 'wlc-grundfos',
+    slug: 'grundfos-water-level-controller-panel',
+    name: 'GRUNDFOS WATER LEVEL CONTROLLER',
+    brand: 'GRUNDFOS',
+    category: 'Water Level Controller',
+    image: '/products/wlc-grundfos.png',
+    shortDesc: 'Grundfos automatic digital water level controller panel.',
+    fullDesc: 'Fully automated water level controller system by Grundfos. Prevents tank dry run and overflow automatically with smart float switch sensors.',
+    features: ['Automatic overflow prevention', 'Pump dry run protection', 'Industrial grade sensors'],
+    applications: ['Underground Sumps', 'Overhead Tanks']
+  },
+  {
+    id: 'wlc-nonbrand',
+    slug: 'non-brand-automatic-water-level-controller-panel',
+    name: 'NON BRAND WATER LEVEL CONTROLLER',
+    brand: 'NON BRAND',
+    category: 'Water Level Controller',
+    image: '/products/wlc-nonbrand.png',
+    shortDesc: 'Automatic water level controller panel for domestic pumps.',
+    fullDesc: 'Budget-friendly automatic water level controller with sensor probes, ideal for domestic overhead tanks and sump pumps.',
+    features: ['Auto/Manual control switch', 'LED level indicators', 'Rust-proof sensor probes'],
+    applications: ['Domestic Overhead Tanks', 'Homes', 'Apartments']
+  },
+
+  // --- SOLAR PV PANEL ---
+  {
+    id: 'pv-emmvee',
+    slug: 'emmvee-solarizer-solar-pv-panel-module',
+    name: 'EMMVEE SOLARIZER ROOFTOP PV PANEL',
+    brand: 'EMMVEE SOLARIZER',
+    category: 'Solar PV Panel',
+    image: '/products/pv-emmvee.png',
+    shortDesc: 'Emmvee Solarizer premium monocrystalline rooftop solar PV panel.',
+    fullDesc: 'High efficiency monocrystalline solar PV panels engineered by Emmvee using advanced European manufacturing standards.',
+    features: ['High efficiency monocrystalline cells', 'Excellent low-light performance', 'Durable tempered glass sheet'],
+    applications: ['Rooftops', 'Offices', 'Villas']
+  },
+  {
+    id: 'pv-adani',
+    slug: 'adani-solar-pv-panel-module',
+    name: 'ADANI ROOFTOP PV PANEL',
+    brand: 'ADANI',
+    category: 'Solar PV Panel',
+    image: '/products/pv-adani.png',
+    shortDesc: 'Adani green high efficiency rooftop solar PV module.',
+    fullDesc: 'Adani solar photovoltaic panel modules delivering reliable clean energy generation for grid-connected rooftop systems.',
+    features: ['PID resistant cells', 'High wind & snow load durability', '25-year performance warranty'],
+    applications: ['Residential Roofs', 'Commercial Rooftops', 'Solar Farms']
+  },
+  {
+    id: 'pv-other',
+    slug: 'other-brands-rooftop-pv-panels-modules',
+    name: 'OTHER BRANDS ROOFTOP PV PANEL',
+    brand: 'OTHER BRANDS',
+    category: 'Solar PV Panel',
+    image: '/products/pv-other.png',
+    shortDesc: 'Rooftop PV solar panels from other leading manufacturers.',
+    fullDesc: 'We supply, install, and service solar photovoltaic panels from various tier-1 brands customized to your energy requirements.',
+    features: ['Cost-effective clean energy', 'Custom system layout sizing', 'Grid integration ready'],
+    applications: ['Homes', 'Warehouses', 'Institutes']
+  },
+
+  // --- COMMERCIAL HEAT PUMP ---
+  {
+    id: 'chp-deltagreen',
+    slug: 'delta-green-commercial-heat-pump-system',
+    name: 'DELTA GREEN AIR SOURCE COMMERCIAL HEAT PUMP',
+    brand: 'DELTA GREEN',
+    category: 'Commercial Heat Pump',
+    image: '/products/comm-heatpump-deltagreen.png',
+    shortDesc: 'Delta Green air source commercial heat pump water heater system.',
+    fullDesc: 'High volume air source commercial heat pump system from Delta Green, featuring robust scroll compressors and stainless steel heat exchangers.',
+    features: ['High capacity scroll compressor', 'Stainless steel thermal storage tank', 'Saves up to 75% heating energy'],
+    applications: ['Hotels', 'Hospitals', 'Hostels', 'Apartment Blocks']
+  },
+  {
+    id: 'chp-neo',
+    slug: 'neo-commercial-heat-pump-system',
+    name: 'NEO AIR SOURCE COMMERCIAL HEAT PUMP',
+    brand: 'NEO',
+    category: 'Commercial Heat Pump',
+    image: '/products/comm-heatpump-neo.png',
+    shortDesc: 'Neo high capacity commercial air source heat pump.',
+    fullDesc: 'Neo commercial heat pump engineered for continuous large-scale hot water demand in hotels, residential schools, and factories.',
+    features: ['Intelligent automatic defrost', 'High COP performance', 'Robust weatherproof casing'],
+    applications: ['Factories', 'Spas', 'Commercial Swimming Pools', 'Resorts']
+  },
+  {
+    id: 'chp-other',
+    slug: 'other-brands-commercial-heat-pumps-systems',
+    name: 'OTHER BRANDS AIR SOURCE COMMERCIAL HEAT PUMP',
+    brand: 'OTHER BRANDS',
+    category: 'Commercial Heat Pump',
+    image: '/products/comm-heatpump-other.png',
+    shortDesc: 'Commercial air source heat pump systems from leading global brands.',
+    fullDesc: 'Heavy-duty commercial heat pump systems sourced from trusted global brands with custom capacity options.',
+    features: ['Custom heating design layout', 'Robust mechanical configuration', 'Integrated system controls'],
+    applications: ['Large Buildings', 'Hotels', 'Hospitals']
   }
 ];
 
@@ -825,7 +1066,12 @@ export const CATEGORIES = [
   'Solar with Heat Pump',
   'Pressure Pump',
   'Hot Water Recirculation Pump',
-  'Sump Pump'
+  'Sump Pump',
+  'Under the Sink RO',
+  'Wall Mounted RO',
+  'Water Level Controller',
+  'Solar PV Panel',
+  'Commercial Heat Pump'
 ] as const;
 
 export const COMPANY_DETAILS = {
