@@ -71,10 +71,16 @@ const PublicLayout: React.FC<{
   onCloseEnquiry: () => void;
   enquiryProduct: string;
 }> = ({ onOpenEnquiry, isEnquiryOpen, onCloseEnquiry, enquiryProduct }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-tgmc-blue selection:text-white">
       {/* Sticky Top Header */}
-      <Navbar onOpenEnquiry={onOpenEnquiry} />
+      <Navbar 
+        onOpenEnquiry={onOpenEnquiry} 
+        mobileMenuOpen={mobileMenuOpen} 
+        setMobileMenuOpen={setMobileMenuOpen} 
+      />
 
       {/* Page Content View */}
       <main className="flex-grow">
@@ -85,7 +91,11 @@ const PublicLayout: React.FC<{
       <Footer onOpenEnquiry={onOpenEnquiry} />
 
       {/* Mobile Bottom Navigation */}
-      <MobileBottomNav onOpenEnquiry={() => onOpenEnquiry()} />
+      <MobileBottomNav 
+        onOpenEnquiry={() => onOpenEnquiry()} 
+        onToggleMore={() => setMobileMenuOpen(!mobileMenuOpen)}
+        isMenuOpen={mobileMenuOpen}
+      />
 
       {/* Floating Sticky WhatsApp Quick Access Button */}
       <WhatsAppFloatingBtn />

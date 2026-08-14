@@ -5,9 +5,14 @@ import { Home, Package, Wrench, MessageSquare, MoreHorizontal } from 'lucide-rea
 interface MobileBottomNavProps {
   onOpenEnquiry: () => void;
   onToggleMore?: () => void;
+  isMenuOpen?: boolean;
 }
 
-export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenEnquiry }) => {
+export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ 
+  onOpenEnquiry,
+  onToggleMore,
+  isMenuOpen = false
+}) => {
   const location = useLocation();
 
   const navItems = [
@@ -15,15 +20,34 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenEnquiry 
     { name: 'Products', path: '/products', icon: Package, isAction: false },
     { name: 'Service', path: '/services', icon: Wrench, isAction: false },
     { name: 'Enquiry', path: '#enquiry', icon: MessageSquare, isAction: true },
-    { name: 'More', path: '/brands', icon: MoreHorizontal, isAction: false },
+    { name: 'More', path: '#more', icon: MoreHorizontal, isAction: false },
   ];
 
   return (
     <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-2 py-1.5 shadow-[0_-4px_16px_rgba(0,0,0,0.06)]">
       <div className="flex items-center justify-around">
         {navItems.map((item) => {
-          const isActive = !item.isAction && location.pathname === item.path;
+          const isActive = item.name === 'More' 
+            ? isMenuOpen 
+            : (!item.isAction && location.pathname === item.path);
           const Icon = item.icon;
+
+          if (item.name === 'More') {
+            return (
+              <button
+                key={item.name}
+                onClick={onToggleMore}
+                className={`flex flex-col items-center justify-center py-1 px-3 transition-colors focus:outline-none ${
+                  isActive ? 'text-tgmc-navy font-bold' : 'text-slate-500 hover:text-tgmc-navy'
+                }`}
+              >
+                <Icon className={`w-5 h-5 mb-0.5 ${isActive ? 'text-tgmc-blue stroke-[2.5]' : 'text-slate-400'}`} />
+                <span className={`text-[10px] ${isActive ? 'text-tgmc-navy font-bold' : 'text-slate-500'}`}>
+                  {item.name}
+                </span>
+              </button>
+            );
+          }
 
           if (item.isAction) {
             return (

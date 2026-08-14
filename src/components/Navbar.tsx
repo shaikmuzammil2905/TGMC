@@ -5,12 +5,22 @@ import { useData } from '../context/DataContext';
 
 interface NavbarProps {
   onOpenEnquiry: (productName?: string) => void;
+  mobileMenuOpen?: boolean;
+  setMobileMenuOpen?: (open: boolean) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
+export const Navbar: React.FC<NavbarProps> = ({ 
+  onOpenEnquiry,
+  mobileMenuOpen: propMobileMenuOpen,
+  setMobileMenuOpen: propSetMobileMenuOpen
+}) => {
   const { contactSettings: COMPANY_DETAILS, loading } = useData();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [localMobileMenuOpen, setLocalMobileMenuOpen] = useState(false);
+
+  const mobileMenuOpen = propMobileMenuOpen !== undefined ? propMobileMenuOpen : localMobileMenuOpen;
+  const setMobileMenuOpen = propSetMobileMenuOpen !== undefined ? propSetMobileMenuOpen : setLocalMobileMenuOpen;
+
   const location = useLocation();
 
   useEffect(() => {
