@@ -159,7 +159,7 @@ export const BRANDS: Brand[] = [
     tagline: 'Assembled Custom Solutions',
     isAuthorised: false,
     description: 'High performance cost-effective assembled water purifiers and controllers tailored to your budget.',
-    categories: ['Wall Mounted RO', 'Water Level Controller'],
+    categories: ['Wall Mounted RO', 'Water Level Controller', 'Water Softener'],
     logoText: 'NON BRAND'
   },
   {
@@ -191,12 +191,10 @@ export const BRANDS: Brand[] = [
   }
 ];
 
-export const PRODUCTS: Product[] = [
-  // --- ZERO B FEATURED PRODUCTS (Numbered 1..7 matching UI & catalog) ---
-  {
+export const PRODUCTS: Product[] = [{
     id: 'zb-softener',
     slug: 'automatic-water-softener',
-    name: 'AUTOMATIC WATER SOFTENER',
+    name: 'ZERO B AUTOMATIC WATER SOFTENER - AS3, AS6, AS8',
     brand: 'ZERO B',
     category: 'Water Softener',
     image: '/products/zero-b-automatic-water-softener.png',
@@ -211,11 +209,10 @@ export const PRODUCTS: Product[] = [
       'Protects geysers, washing machines, and bath fittings'
     ],
     applications: ['Independent Houses', 'Apartments', 'Villas', 'Commercial Laundries']
-  },
-  {
+  },{
     id: 'zb-sand-filter',
     slug: 'automatic-sand-filter',
-    name: 'AUTOMATIC SAND FILTER',
+    name: 'ZERO B AUTOMATIC SAND FILTER - ASF3, ASF6, ASF8',
     brand: 'ZERO B',
     category: 'Sand Filter',
     image: '/products/zero-b-automatic-sand-filter.png',
@@ -230,11 +227,10 @@ export const PRODUCTS: Product[] = [
       'Low pressure drop operation'
     ],
     applications: ['Borewell Pre-Filtration', 'Whole House Filtration', 'Commercial Plants']
-  },
-  {
+  },{
     id: 'zb-carbon-filter',
     slug: 'automatic-carbon-filter',
-    name: 'AUTOMATIC CARBON FILTER',
+    name: 'ZERO B AUTOMATIC CARBON FILTER',
     brand: 'ZERO B',
     category: 'Carbon Filter',
     image: '/products/zero-b-automatic-carbon-filter.png',
@@ -249,11 +245,10 @@ export const PRODUCTS: Product[] = [
       'Prevents chlorine degradation of RO membranes'
     ],
     applications: ['Pre-treatment for RO Systems', 'Whole House Odor Removal', 'Food & Beverage']
-  },
-  {
+  },{
     id: 'zb-iron-filter',
     slug: 'automatic-water-iron-filter',
-    name: 'AUTOMATIC WATER IRON FILTER',
+    name: 'ZERO B AUTOMATIC IRON FILTER',
     brand: 'ZERO B',
     category: 'Iron Filter',
     image: '/products/zero-b-automatic-water-iron-filter.png',
@@ -268,205 +263,7 @@ export const PRODUCTS: Product[] = [
       'Chemical-free oxidation mechanism'
     ],
     applications: ['High Iron Borewell Water', 'Residential Complexes', 'Industrial Pre-treatment']
-  },
-  {
-    id: 'zb-under-sink-ro',
-    slug: 'zero-b-under-the-sink-model-drinking-ro-system',
-    name: 'ZERO B - UNDER THE SINK MODEL DRINKING RO SYSTEM',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-under-sink-ro.png',
-    numberTag: 6,
-    isHeroFeatured: true,
-    shortDesc: 'Space-saving Kitchenmate under-counter RO drinking water system with dedicated designer faucet.',
-    fullDesc: 'Zero B Kitchenmate concealed under-the-counter RO system featuring multi-stage filtration, heavy-metal removal membrane, hydropneumatic 8L storage tank, and dedicated kitchen faucet.',
-    features: [
-      'Concealed under-the-counter space saving design',
-      'Dedicated chrome swan-neck kitchen faucet included',
-      'Hydropneumatic 8L storage tank for pressurized water flow',
-      'Detachable front cover with magnetic latches'
-    ],
-    applications: ['Modular Kitchens', 'Residential Homes', 'Executive Offices']
-  },
-  {
-    id: 'zb-drinking-ro',
-    slug: 'drinking-ro-purifier',
-    name: 'DRINKING RO PURIFIER (ECO RO & MAGNA PLUS)',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/drinking-ro-purifier.png',
-    numberTag: 7,
-    isHeroFeatured: true,
-    shortDesc: 'Wall-mountable drinking RO water purifier with 8-stage purification & HRR water recovery technology.',
-    fullDesc: 'High performance domestic RO water purifier featuring 8 stages of purification, unique Minera Boost cartridge, and HRR technology reducing water wastage by 80%.',
-    features: [
-      '8 stages of RO + UV + UF purification technology',
-      'Minera Boost cartridge adds essential minerals',
-      'HRR technology reduces water wastage by 80%',
-      'ESS technology prevents germ buildup 24x7 in storage tank'
-    ],
-    applications: ['Home Kitchens', 'Apartments', 'Small Offices']
-  },
-
-  // --- ZERO B ALKALINE & HYDROGEN WATER ---
-  {
-    id: 'zb-hydrolife',
-    slug: 'zero-b-hydrolife-alkaline-hydrogen-water',
-    name: 'ZERO B HYDROLIFE (ALKALINE & HYDROGEN WATER)',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-hydrolife.png',
-    shortDesc: 'Premium 11-plate Alkaline and Hydrogen water generator with in-built RO.',
-    fullDesc: 'Zero B Hydrolife delivers palatable hydrogen-rich alkaline water using 11 platinum-coated titanium plates and in-built RO technology. Generates 5 different types of water for lifestyle wellness.',
-    features: [
-      '11 Platinum-coated Titanium Plates',
-      'In-Built RO Purification System',
-      '5 Different Types of Water Output',
-      'Palatable Hydrogen Water & Auto Electrode Cleaning'
-    ],
-    applications: ['Luxury Residences', 'Health Enthusiasts', 'Wellness Centers']
-  },
-
-  // --- ZERO B DRINKING WATER PURIFIERS ---
-  {
-    id: 'zb-uv-grande-2x',
-    slug: 'zero-b-uv-grande-2x',
-    name: 'ZERO B UV GRANDE 2X (UV + UF)',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-uv-grande-2x.png',
-    shortDesc: 'Next-gen UV Technology water purifier with Ultra-Filtration module.',
-    fullDesc: 'Zero B UV Grande 2X paralyzes disease-causing bacteria and viruses using 4 stages of purification and smart LED indicators.',
-    features: [
-      'Next-gen UV Technology paralyzes viruses & bacteria',
-      '4 stages of water purification',
-      'Ultra-Filtration Module removes microbes',
-      'LED Smart Indicator for purifier health'
-    ],
-    applications: ['Apartments', 'Homes', 'Small Kitchens']
-  },
-  {
-    id: 'zb-uv-grande-plus',
-    slug: 'zero-b-uv-grande-plus',
-    name: 'ZERO B UV GRANDE PLUS (UV + ACTIVE SILVER)',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-uv-grande-plus.png',
-    shortDesc: '6-stage Hexapure & ESS technology water purifier.',
-    fullDesc: 'Zero B UV Grande Plus ensures 6 stages of pure water filtration and round-the-clock tank protection via ESS technology.',
-    features: [
-      '6 stages of water purification',
-      'Hexapure Technology purification',
-      'ESS technology prevents germ buildup 24x7',
-      'Next-gen UV Technology'
-    ],
-    applications: ['Home Kitchens', 'Flats']
-  },
-  {
-    id: 'zb-wave-plus-ro',
-    slug: 'zero-b-wave-plus-ro',
-    name: 'ZERO B WAVE PLUS RO',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-wave-plus-ro.png',
-    shortDesc: 'Low pressure 6-stage RO purifier with 7 Litre storage capacity.',
-    fullDesc: 'Zero B Wave Plus RO works effectively at low water pressure, lowering membrane fouling while removing high TDS.',
-    features: [
-      'Works at low pressure with lower membrane fouling',
-      'High TDS remover',
-      '6 stages of water purification',
-      '7 Litre storage tank capacity'
-    ],
-    applications: ['Residences', 'Low Pressure Households']
-  },
-  {
-    id: 'zb-ignite-hot-ro',
-    slug: 'zero-b-ignite-hot-and-normal-ro',
-    name: 'ZERO B IGNITE HOT & NORMAL RO/UF+UV',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-ignite-hot-ro.png',
-    shortDesc: 'Portable Hot & Normal drinking RO water purifier with touch panel control.',
-    fullDesc: 'India\'s first portable hot and normal water purifier. Requires no tap water connection and delivers instant hot RO purified water at your fingertips.',
-    features: [
-      'Portable design requiring no fixed tap connection',
-      'Instant RO / UF + UV purified hot & normal water',
-      'Elegant touch panel with multiple temperature options',
-      'Child lock safety feature'
-    ],
-    applications: ['Executive Offices', 'Homes', 'Bedrooms', 'Conference Rooms']
-  },
-
-  // --- ZERO B NON-ELECTRIC PURIFIERS ---
-  {
-    id: 'zb-suraksha-pluspro',
-    slug: 'zero-b-suraksha-pluspro',
-    name: 'ZERO B SURAKSHA PLUSPRO (NON-ELECTRIC)',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-suraksha-pluspro.png',
-    shortDesc: 'Non-electric gravity-based water purifier with 3000L resin technology.',
-    fullDesc: 'Suraksha Pluspro resin technology provides 3000 Liters of bacteria and virus free drinking water without electricity or boiling.',
-    features: [
-      'Non-electric gravity based operation',
-      'Resin technology provides 3000L purified water',
-      'Removes bacteria and water-borne pathogens',
-      'Zero electricity or boiling required'
-    ],
-    applications: ['Home Kitchens', 'Rentals', 'Emergency Preparedness']
-  },
-  {
-    id: 'zb-rakshak-iron',
-    slug: 'zero-b-rakshak-iron-remover',
-    name: 'ZERO B RAKSHAK IRON REMOVER (NON-ELECTRIC)',
-    brand: 'ZERO B',
-    category: 'Iron Filter',
-    image: '/products/zero-b-rakshak-iron.png',
-    shortDesc: 'Non-electric gravity purifier with reusable sponge filter capsule.',
-    fullDesc: 'Rakshak Iron Remover uses a reusable sponge filter capsule and auto shut-off germicidal cartridge with exhaust indicator.',
-    features: [
-      'Reusable easy-to-use sponge filter capsule',
-      'Auto shut-off germicidal cartridge with exhaust indicator',
-      'Non-electric gravity based operation'
-    ],
-    applications: ['Borewell Homes', 'Non-Electric Areas']
-  },
-  {
-    id: 'zb-suraksha-veg',
-    slug: 'zero-b-suraksha-vegetable-cleaner',
-    name: 'ZERO B SURAKSHA VEGETABLE CLEANER',
-    brand: 'ZERO B',
-    category: 'RO Purifier',
-    image: '/products/zero-b-suraksha-veg.png',
-    shortDesc: 'Tap attachment resin cleaner for safe germ-free water & vegetable washing.',
-    fullDesc: 'Suraksha Vegetable Cleaner tap attachment uses resin technology to produce 7500 Liters of safe, bacteria-free drinking and washing water.',
-    features: [
-      'Tap attachment with free adapter for any tap size',
-      'Produces 7500 litres of safe germ-free water',
-      'In-built indicator showing unit life end',
-      'Kills bacteria and viruses'
-    ],
-    applications: ['Kitchen Sinks', 'Vegetable Washing', 'Domestic Taps']
-  },
-
-  // --- ZERO B WATER SOFTENERS & FILTERS ---
-  {
-    id: 'zb-minisoft-bathroom',
-    slug: 'zero-b-mini-soft-bathroom-softener',
-    name: 'ZERO B MINI SOFT BATHROOM SOFTENER',
-    brand: 'ZERO B',
-    category: 'Water Softener',
-    image: '/products/zero-b-minisoft-bathroom.png',
-    shortDesc: 'Point of use sleek wall-mount bathroom water softener for appliances.',
-    fullDesc: 'Easy to fit sleek wall-mount bathroom softener. Protects washing machines, dishwashers, reduces hair loss and skin ailments.',
-    features: [
-      'Sleek wall-mount compact design',
-      'Ideal for washing machines & dishwashers',
-      'Reduces hair fall, skin dryness, and fabric fading'
-    ],
-    applications: ['Bathrooms', 'Washing Machine Points', 'Geysers']
-  },
-  {
+  },{
     id: 'zb-autosoft-1',
     slug: 'zero-b-autosoft-1',
     name: 'ZERO B AUTOSOFT-1 APARTMENT SOFTENER',
@@ -481,8 +278,7 @@ export const PRODUCTS: Product[] = [
       'Saves soap and shampoo consumption'
     ],
     applications: ['Apartments', 'Flats']
-  },
-  {
+  },{
     id: 'zb-autosoft-2',
     slug: 'zero-b-autosoft-2',
     name: 'ZERO B AUTOSOFT-2 APARTMENT SOFTENER',
@@ -496,8 +292,7 @@ export const PRODUCTS: Product[] = [
       'Retains fabric color & natural softness'
     ],
     applications: ['Apartment Homes', 'Villas']
-  },
-  {
+  },{
     id: 'zb-autosoft-3-6',
     slug: 'zero-b-autosoft-3-and-6',
     name: 'ZERO B AUTOSOFT-3 & 6 WHOLE HOUSE SOFTENER',
@@ -512,8 +307,7 @@ export const PRODUCTS: Product[] = [
       'Protects entire household plumbing network'
     ],
     applications: ['Large Villas', 'Bungalows', 'Multi-storey Homes']
-  },
-  {
+  },{
     id: 'zb-autosoft-8',
     slug: 'zero-b-autosoft-8',
     name: 'ZERO B AUTOSOFT-8 MEGA CAPACITY SOFTENER',
@@ -527,8 +321,7 @@ export const PRODUCTS: Product[] = [
       'Full auto backwash and brine regeneration'
     ],
     applications: ['Residential Complexes', 'Hotels', 'Commercial Buildings']
-  },
-  {
+  },{
     id: 'zb-d-ferrous',
     slug: 'zero-b-d-ferrous-iron-remover',
     name: 'ZERO B D-FERROUS IRON REMOVER',
@@ -543,63 +336,7 @@ export const PRODUCTS: Product[] = [
       'Saves cooking gas consumption'
     ],
     applications: ['Pre-RO Treatment', 'Borewell Domestic Lines']
-  },
-
-  // --- ZERO B COMMERCIAL RO PLANTS ---
-  {
-    id: 'zb-intello-25lph',
-    slug: 'zero-b-intello-ro-25lph',
-    name: 'ZERO B INTELLO RO 25LPH + ACTIVE SILVER',
-    brand: 'ZERO B',
-    category: 'Commercial RO',
-    image: '/products/zero-b-intello-25lph.png',
-    capacities: ['25 LPH'],
-    shortDesc: 'Commercial 25 LPH RO purifier with smart digital monitor & active silver.',
-    fullDesc: 'High TDS Remover removes excess salts, heavy metals, and pesticides. Smart digital monitor displays cartridge life and alarms.',
-    features: [
-      '25 Litres Per Hour flow rate',
-      'Smart digital monitor displays cartridge life and alarm',
-      'Active Silver Technology for anti-microbial protection'
-    ],
-    applications: ['Small Offices', 'Cafes', 'Clinics', 'Schools']
-  },
-  {
-    id: 'zb-eco-smart-50lph',
-    slug: 'zero-b-eco-smart-ro-50lph',
-    name: 'ZERO B ECO SMART RO 50LPH',
-    brand: 'ZERO B',
-    category: 'Commercial RO',
-    image: '/products/zero-b-eco-smart-50lph.png',
-    capacities: ['50 LPH'],
-    shortDesc: '50 LPH Commercial RO plant with 3x higher pure water recovery.',
-    fullDesc: 'Features HRR technology for 3x higher pure water recovery, smart visual alert for monitoring TDS output, and ESS technology 24x7.',
-    features: [
-      '50 LPH commercial purification capacity',
-      '3 times higher pure water recovery with HRR',
-      'Smart visual alert for monitoring TDS level'
-    ],
-    applications: ['Restaurants', 'Multiplexes', 'Corporate Offices']
-  },
-  {
-    id: 'zb-skid-ro',
-    slug: 'zero-b-skid-ro-25lph-50lph',
-    name: 'ZERO B SKID RO 25LPH / 50LPH',
-    brand: 'ZERO B',
-    category: 'Commercial RO',
-    image: '/products/zero-b-skid-ro.png',
-    capacities: ['25 LPH', '50 LPH'],
-    shortDesc: 'Heavy-duty skid mounted commercial RO system with auto flush timer.',
-    fullDesc: 'Equipped with enhanced high flow membrane and auto flush timer to extend membrane life automatically.',
-    features: [
-      'Heavy-duty stainless steel skid mounting',
-      'Enhanced high flow membrane technology',
-      'Auto flush timer enhances membrane life'
-    ],
-    applications: ['Institutes', 'Offices', 'Large Families', 'Factories']
-  },
-
-  // --- HEAT PUMPS ---
-  {
+  },{
     id: 'hp-deltagreen',
     slug: 'delta-green-heat-pump',
     name: 'DELTA GREEN HEAT PUMP',
@@ -610,8 +347,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'High efficiency air-to-water heat pump systems from Delta Green. Provides 24x7 hot water with up to 70% energy savings.',
     features: ['Eco-friendly refrigerant', 'Digital controller panel', 'High COP heating'],
     applications: ['Villas', 'Independent Houses', 'Hotels', 'Hostels']
-  },
-  {
+  },{
     id: 'hp-vguard',
     slug: 'v-guard-heat-pump',
     name: 'V GUARD HEAT PUMP',
@@ -622,8 +358,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'V-Guard heat pump water heaters use advanced air-to-water heat exchanger tech to deliver steady hot water with low power usage.',
     features: ['Corrosion-resistant tank', 'Quick temperature recovery', 'Saves up to 70% power'],
     applications: ['Villas', 'Duplex Homes', 'Guest Houses']
-  },
-  {
+  },{
     id: 'hp-zerob',
     slug: 'zero-b-heat-pump-heater',
     name: 'ZERO B HEAT PUMP',
@@ -634,8 +369,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Zero B air-to-water heat pump system from Ion Exchange. Extremely efficient, reliable all-weather operation.',
     features: ['Heavy-duty compressor', 'Sleek casing', 'Smart digital control display'],
     applications: ['Independent Residences', 'Apartments', 'Commercial Outlets']
-  },
-  {
+  },{
     id: 'hp-racold',
     slug: 'racold-heat-pump-heater',
     name: 'RACOLD HEAT PUMP',
@@ -646,10 +380,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Racold residential and commercial heat pump water heaters, utilizing thermodynamic principles to heat water efficiently.',
     features: ['Thermodynamic cycle heating', 'Intelligent control system', 'Corrosion resistant tank'],
     applications: ['Luxury Villas', 'Spas', 'Hotels', 'Apartments']
-  },
-
-  // --- SOLAR WATER HEATERS ---
-  {
+  },{
     id: 'swh-emmvee',
     slug: 'emmvee-solarizer-solar-water-heater',
     name: 'EMMVEE SOLARIZER SOLAR WATER HEATER',
@@ -660,8 +391,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Emmvee Solarizer is a top-tier solar water heater featuring high-absorption glass collector plates for rapid water heating.',
     features: ['Premium glass collector plates', 'German technology engineering', 'Rust-proof frame support'],
     applications: ['Rooftops', 'Independent Homes', 'Hostels']
-  },
-  {
+  },{
     id: 'swh-vguard',
     slug: 'v-guard-solar-water-heater',
     name: 'V GUARD SOLAR WATER HEATER',
@@ -672,8 +402,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'V-Guard ETC solar water heater with high density PUF insulation, ensuring water stays hot overnight.',
     features: ['Evacuated Glass Tube (ETC)', 'Thick PUF insulation', 'Sacrificial anode protection'],
     applications: ['Residential Houses', 'Gated Communities']
-  },
-  {
+  },{
     id: 'swh-racold',
     slug: 'racold-solar-water-heater',
     name: 'RACOLD SOLAR WATER HEATER',
@@ -684,8 +413,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Racold solar water heating systems combine international quality design with durable collector panels.',
     features: ['High heat transfer coating', 'Durable support stand', 'Overheat safety release valve'],
     applications: ['Villas', 'PG Accommodations', 'Hotels']
-  },
-  {
+  },{
     id: 'swh-supreme',
     slug: 'supreme-solar-water-heater',
     name: 'SUPREME SOLAR WATER HEATER',
@@ -696,8 +424,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Supreme Solar rooftop system designed for efficient solar thermal conversion even on cloudy days.',
     features: ['High transmission glass ETC tubes', 'Rustproof inner tank lining', 'Sturdy powder-coated stand'],
     applications: ['Independent Residences', 'Apartments']
-  },
-  {
+  },{
     id: 'swh-kamal',
     slug: 'kamal-solar-water-heater',
     name: 'KAMAL SOLAR WATER HEATER',
@@ -708,10 +435,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Kamal solar hot water system built for long lifetime and highly efficient thermal heating.',
     features: ['Highly efficient copper/glass solar panel', 'Heavy-duty insulated storage tank'],
     applications: ['Homes', 'Villas', 'Commercial Buildings']
-  },
-
-  // --- SOLAR WITH HEAT PUMP ---
-  {
+  },{
     id: 's-hp-emmvee',
     slug: 'emmvee-solarizer-solar-with-heat-pump',
     name: 'EMMVEE SOLARIZER SOLAR WITH HEAT PUMP',
@@ -722,8 +446,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Advanced hybrid water heating combining solar thermal efficiency with air-source heat pump technology for 24x7 hot water regardless of weather.',
     features: ['Hybrid solar + heat pump system', 'German engineering quality', 'All-weather hot water heating'],
     applications: ['Villas', 'Apartments', 'Commercial Projects']
-  },
-  {
+  },{
     id: 's-hp-vguard',
     slug: 'v-guard-solar-with-heat-pump',
     name: 'V GUARD SOLAR WITH HEAT PUMP',
@@ -734,8 +457,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Smart hybrid system that prioritizes solar heating first, and automatically triggers the heat pump when solar energy is insufficient.',
     features: ['Automatic backup controller', 'Highly insulated hot water storage', 'Optimized power usage'],
     applications: ['Duplex Villas', 'PG Hostels', 'Hospitals']
-  },
-  {
+  },{
     id: 's-hp-racold',
     slug: 'racold-solar-with-heat-pump',
     name: 'RACOLD SOLAR WITH HEAT PUMP',
@@ -746,8 +468,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Premium Racold hybrid system combining solar thermal absorption with high performance air heat source.',
     features: ['Dual heating elements', 'Weatherproof control unit', 'Maximum energy efficiency rating'],
     applications: ['Luxury Villas', 'Resorts', 'Wellness Centers']
-  },
-  {
+  },{
     id: 's-hp-kamal',
     slug: 'kamal-solar-with-heat-pump',
     name: 'KAMAL SOLAR WITH HEAT PUMP',
@@ -758,10 +479,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Kamal hybrid system ensuring uninterrupted high volume hot water output for residential and light commercial projects.',
     features: ['Heavy-duty hybrid design', 'Corrosion resistant construction', 'Auto changeover settings'],
     applications: ['Homes', 'Hotels', 'Hostels']
-  },
-
-  // --- PRESSURE PUMPS ---
-  {
+  },{
     id: 'press-grundfos',
     slug: 'grundfos-pressure-pump',
     name: 'GRUNDFOS PRESSURE PUMP',
@@ -772,8 +490,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Grundfos automatic pressure booster pump ensuring constant water pressure in luxury bathrooms, showers, and taps.',
     features: ['Constant water pressure control', 'Ultra-quiet motor operation', 'Dry-run protection built-in'],
     applications: ['Luxury Villas', 'Modern Bungalows', 'Commercial Kitchens']
-  },
-  {
+  },{
     id: 'press-kirloskar',
     slug: 'kirloskar-pressure-pump',
     name: 'KIRLOSKAR PRESSURE PUMP',
@@ -784,8 +501,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Kirloskar automatic pressure pump designed for reliable water boosting in residences and apartments.',
     features: ['Robust cast-iron casing', 'Automatic pressure switch', 'Efficient power usage'],
     applications: ['Independent Homes', 'Apartments', 'Taps & Showers']
-  },
-  {
+  },{
     id: 'press-vguard',
     slug: 'v-guard-pressure-pump',
     name: 'V GUARD PRESSURE PUMP',
@@ -796,8 +512,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'V-Guard automatic water pressure booster pump ensuring uniform flow across showers and taps simultaneously.',
     features: ['Automatic ON/OFF operation', 'Quiet running motor', 'Thermal overload protection'],
     applications: ['Multi-bathroom Houses', 'Booster Lines']
-  },
-  {
+  },{
     id: 'press-lubi',
     slug: 'lubi-pressure-pump',
     name: 'LUBI PRESSURE PUMP',
@@ -808,10 +523,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Lubi automatic pressure pump designed for efficient water pressure regulation in homes and commercial outlets.',
     features: ['Compact design', 'Constant line pressure maintenance', 'Heavy-duty pump impeller'],
     applications: ['Homes', 'Small Commercial Complexes']
-  },
-
-  // --- HOT WATER RE CIRCULATION PUMP ---
-  {
+  },{
     id: 'recirc-grundfos',
     slug: 'grundfos-hot-water-re-circulation-pump',
     name: 'GRUNDFOS HOT WATER RE CIRCULATION PUMP',
@@ -822,11 +534,10 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Grundfos hot water recirculation pump keeps hot water constantly moving through lines, eliminating wait time at the faucet.',
     features: ['Instant hot water at any tap', 'Saves water from running down drain', 'Extremely low power consumption'],
     applications: ['Villas', 'Hotels', 'Large Homes with long pipe runs']
-  },
-  {
+  },{
     id: 'recirc-vguard',
     slug: 'v-guard-hot-water-re-circulation-pump',
-    name: 'V GUARD HOT WATER RE CIRCULATION PUMP',
+    name: 'V GUARD RE CIRCULATION PUMP',
     brand: 'V GUARD',
     category: 'Hot Water Recirculation Pump',
     image: '/products/recirc-vguard.png',
@@ -834,13 +545,10 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'V-Guard recirculation pump keeps hot water circulating through pipelines to provide instant hot water.',
     features: ['Instant line heating', 'Quiet motor operation', 'Compact size'],
     applications: ['Residences', 'Villa Complexes']
-  },
-
-  // --- SUMP PUMPS ---
-  {
+  },{
     id: 'sump-kirloskar',
     slug: 'kirloskar-sump-pump',
-    name: 'KIRLOSKAR SUMP PUMP',
+    name: 'KIRLOSKAR OPEN WELL SUBMERSIBLE PUMP',
     brand: 'KIRLOSKAR',
     category: 'Sump Pump',
     image: '/products/sump-kirloskar.png',
@@ -848,8 +556,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Kirloskar submersible pump designed for dewatering sumps, basements, and raw water transfer.',
     features: ['Submersible cast iron body', 'Heavy-duty motor impeller', 'High discharge flow rate'],
     applications: ['Underground Sumps', 'Basement Drainage', 'Water Tanks']
-  },
-  {
+  },{
     id: 'sump-texmo',
     slug: 'texmo-sump-pump',
     name: 'TEXMO SUMP PUMP',
@@ -860,8 +567,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Texmo submersible sump pump engineered for high-volume drainage, dewatering, and sump clearing.',
     features: ['Corrosion-resistant casing', 'Submersible reliability', 'Low maintenance design'],
     applications: ['Industrial Sumps', 'Commercial Buildings', 'Water Storage Clearing']
-  },
-  {
+  },{
     id: 'sump-grundfos',
     slug: 'grundfos-sump-pump',
     name: 'GRUNDFOS SUMP PUMP',
@@ -872,10 +578,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Grundfos submersible pump constructed with stainless steel parts for basement dewatering and water transfer.',
     features: ['Stainless steel shaft and casing', 'Automatic float switch control', 'Built-in thermal overload protection'],
     applications: ['Basements', 'Stormwater pits', 'Underground Water Sumps']
-  },
-
-  // --- UNDER THE SINK RO ---
-  {
+  },{
     id: 'us-zerob',
     slug: 'zero-b-under-the-sink-ro-purifier',
     name: 'ZERO B UNDER THE SINK DRINKING RO PURIFIER',
@@ -886,8 +589,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Space saving Zero B under-the-sink RO purifier with high output filtration, dedicated faucet, and pressurized storage tank.',
     features: ['Concealed space-saving design', 'Pressurized water storage', 'Dedicated chrome faucet'],
     applications: ['Modular Kitchens', 'Homes', 'Offices']
-  },
-  {
+  },{
     id: 'us-aosmith',
     slug: 'ao-smith-under-the-sink-ro-purifier',
     name: 'AO SMITH UNDER THE SINK DRINKING RO PURIFIER',
@@ -898,10 +600,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'High recovery under-the-sink RO water purifier from AO Smith. Designed for modern modular kitchens with digital alarms.',
     features: ['High recovery green technology', 'Concealed placement', 'Digital indicator faucet'],
     applications: ['Modular Kitchens', 'Villas']
-  },
-
-  // --- WALL MOUNTED RO ---
-  {
+  },{
     id: 'wm-zerob',
     slug: 'zero-b-wall-mounted-ro-purifier',
     name: 'ZERO B WALL MOUNTED RO PURIFIER',
@@ -912,8 +611,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Zero B Magna Plus domestic wall-mounted drinking water purifier featuring multi-stage filtration and mineral enricher.',
     features: ['Elegant wall mount cabinet', 'Minera Boost cartridge', 'High recovery RO technology'],
     applications: ['Home Kitchens', 'Offices']
-  },
-  {
+  },{
     id: 'wm-kent',
     slug: 'kent-wall-mounted-ro-purifier',
     name: 'KENT WALL MOUNTED RO PURIFIER',
@@ -924,8 +622,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Kent multi-stage wall-mounted RO water purifier with built-in TDS controller to retain essential natural minerals.',
     features: ['TDS Controller module', 'Double purification RO+UV+UF', 'Transparent storage tank'],
     applications: ['Kitchens', 'Clinics', 'Schools']
-  },
-  {
+  },{
     id: 'wm-aqua',
     slug: 'aqua-wall-mounted-ro-purifier',
     name: 'AQUA WALL MOUNTED RO PURIFIER',
@@ -936,8 +633,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'High performance economic wall-mounted RO system featuring sediment, carbon, and membrane filtration.',
     features: ['Compact cabinet', 'Budget-friendly pricing', 'Easy cartridge replacement'],
     applications: ['Homes', 'Rentals']
-  },
-  {
+  },{
     id: 'wm-nonbrand',
     slug: 'non-brand-assembled-wall-mounted-ro-purifier',
     name: 'NON BRAND WALL MOUNTED RO PURIFIER',
@@ -948,10 +644,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Highly cost-effective custom-assembled wall mounted water purifier, using high-quality industry components.',
     features: ['Custom filtration stage configuration', 'High-quality components', 'Economical maintenance costs'],
     applications: ['Homes', 'Small Shops', 'Staff Rooms']
-  },
-
-  // --- WATER LEVEL CONTROLLER ---
-  {
+  },{
     id: 'wlc-grundfos',
     slug: 'grundfos-water-level-controller-panel',
     name: 'GRUNDFOS WATER LEVEL CONTROLLER',
@@ -962,8 +655,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Fully automated water level controller system by Grundfos. Prevents tank dry run and overflow automatically with smart float switch sensors.',
     features: ['Automatic overflow prevention', 'Pump dry run protection', 'Industrial grade sensors'],
     applications: ['Underground Sumps', 'Overhead Tanks']
-  },
-  {
+  },{
     id: 'wlc-nonbrand',
     slug: 'non-brand-automatic-water-level-controller-panel',
     name: 'NON BRAND WATER LEVEL CONTROLLER',
@@ -974,13 +666,10 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Budget-friendly automatic water level controller with sensor probes, ideal for domestic overhead tanks and sump pumps.',
     features: ['Auto/Manual control switch', 'LED level indicators', 'Rust-proof sensor probes'],
     applications: ['Domestic Overhead Tanks', 'Homes', 'Apartments']
-  },
-
-  // --- SOLAR PV PANEL ---
-  {
+  },{
     id: 'pv-emmvee',
     slug: 'emmvee-solarizer-solar-pv-panel-module',
-    name: 'EMMVEE SOLARIZER ROOFTOP PV PANEL',
+    name: 'EMMVEE ROOFTOP PV SOLAR PANEL',
     brand: 'EMMVEE SOLARIZER',
     category: 'Solar PV Panel',
     image: '/products/pv-emmvee.png',
@@ -988,11 +677,10 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'High efficiency monocrystalline solar PV panels engineered by Emmvee using advanced European manufacturing standards.',
     features: ['High efficiency monocrystalline cells', 'Excellent low-light performance', 'Durable tempered glass sheet'],
     applications: ['Rooftops', 'Offices', 'Villas']
-  },
-  {
+  },{
     id: 'pv-adani',
     slug: 'adani-solar-pv-panel-module',
-    name: 'ADANI ROOFTOP PV PANEL',
+    name: 'ADANI ROOFTOP PV SOLAR PANEL',
     brand: 'ADANI',
     category: 'Solar PV Panel',
     image: '/products/pv-adani.png',
@@ -1000,8 +688,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Adani solar photovoltaic panel modules delivering reliable clean energy generation for grid-connected rooftop systems.',
     features: ['PID resistant cells', 'High wind & snow load durability', '25-year performance warranty'],
     applications: ['Residential Roofs', 'Commercial Rooftops', 'Solar Farms']
-  },
-  {
+  },{
     id: 'pv-other',
     slug: 'other-brands-rooftop-pv-panels-modules',
     name: 'OTHER BRANDS ROOFTOP PV PANEL',
@@ -1012,13 +699,10 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'We supply, install, and service solar photovoltaic panels from various tier-1 brands customized to your energy requirements.',
     features: ['Cost-effective clean energy', 'Custom system layout sizing', 'Grid integration ready'],
     applications: ['Homes', 'Warehouses', 'Institutes']
-  },
-
-  // --- COMMERCIAL HEAT PUMP ---
-  {
+  },{
     id: 'chp-deltagreen',
     slug: 'delta-green-commercial-heat-pump-system',
-    name: 'DELTA GREEN AIR SOURCE COMMERCIAL HEAT PUMP',
+    name: 'DELTA GREEN COMMERCIAL AIR SOURCE HEAT PUMP',
     brand: 'DELTA GREEN',
     category: 'Commercial Heat Pump',
     image: '/products/comm-heatpump-deltagreen.png',
@@ -1026,8 +710,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'High volume air source commercial heat pump system from Delta Green, featuring robust scroll compressors and stainless steel heat exchangers.',
     features: ['High capacity scroll compressor', 'Stainless steel thermal storage tank', 'Saves up to 75% heating energy'],
     applications: ['Hotels', 'Hospitals', 'Hostels', 'Apartment Blocks']
-  },
-  {
+  },{
     id: 'chp-neo',
     slug: 'neo-commercial-heat-pump-system',
     name: 'NEO AIR SOURCE COMMERCIAL HEAT PUMP',
@@ -1038,8 +721,7 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Neo commercial heat pump engineered for continuous large-scale hot water demand in hotels, residential schools, and factories.',
     features: ['Intelligent automatic defrost', 'High COP performance', 'Robust weatherproof casing'],
     applications: ['Factories', 'Spas', 'Commercial Swimming Pools', 'Resorts']
-  },
-  {
+  },{
     id: 'chp-other',
     slug: 'other-brands-commercial-heat-pumps-systems',
     name: 'OTHER BRANDS AIR SOURCE COMMERCIAL HEAT PUMP',
@@ -1050,7 +732,24 @@ export const PRODUCTS: Product[] = [
     fullDesc: 'Heavy-duty commercial heat pump systems sourced from trusted global brands with custom capacity options.',
     features: ['Custom heating design layout', 'Robust mechanical configuration', 'Integrated system controls'],
     applications: ['Large Buildings', 'Hotels', 'Hospitals']
-  }
+  },
+  {
+    id: 'nonbrand-softener',
+    slug: 'non-brand-water-softener',
+    name: 'NON BRAND WATER SOFTENER',
+    brand: 'NON BRAND',
+    category: 'Water Softener',
+    image: '/products/non-brand-water-softener.png',
+    shortDesc: 'Custom-assembled automatic or manual water softening system.',
+    fullDesc: 'Cost-effective assembled water softener using high-grade food-safe ion-exchange resin. Configured to handle local hardness levels with manual or automatic multiport valves.',
+    features: [
+      'High-capacity food-grade ion exchange resin',
+      'Corrosion-free heavy duty FRP vessel',
+      'Optional automatic digital regeneration valve or manual multiport valve',
+      'Protects household plumbing and appliances from scaling'
+    ],
+    applications: ['Independent Houses', 'Apartments', 'Villas', 'Commercial Outlets']
+  },
 ];
 
 export const CATEGORIES = [
@@ -1059,8 +758,6 @@ export const CATEGORIES = [
   'Sand Filter',
   'Carbon Filter',
   'Iron Filter',
-  'RO Purifier',
-  'Commercial RO',
   'Heat Pump',
   'Solar Water Heater',
   'Solar with Heat Pump',
