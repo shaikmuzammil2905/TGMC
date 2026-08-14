@@ -1,9 +1,10 @@
 import React from 'react';
 import { MessageSquare } from 'lucide-react';
-import { COMPANY_DETAILS } from '../data/products';
+import { useData } from '../context/DataContext';
 
 export const WhatsAppFloatingBtn: React.FC = () => {
-  const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent('Hello TGMC, I am interested in your water purification and water heating products. Please share the details.')}`;
+  const { contactSettings: COMPANY_DETAILS } = useData();
+  const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${encodeURIComponent('Hello TGMC, I am interested in your water purification and water heating products. Please share the details.')}`;
 
   return (
     <a

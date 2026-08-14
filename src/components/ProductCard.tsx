@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, MessageSquare, Tag, Award } from 'lucide-react';
-import { Product } from '../data/products';
+import { Product } from '../context/DataContext';
 
 interface ProductCardProps {
   product: Product;

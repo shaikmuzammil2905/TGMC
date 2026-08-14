@@ -7,8 +7,8 @@ import { DeltaGreenSection } from '../components/DeltaGreenSection';
 import { CommercialSection } from '../components/CommercialSection';
 import { BrandsSection } from '../components/BrandsSection';
 import { ServiceBanner } from '../components/ServiceBanner';
-import { PRODUCTS, CATEGORIES } from '../data/products';
-import { ChevronRight, Filter, Sparkles, Phone, MessageSquare } from 'lucide-react';
+import { useData } from '../context/DataContext';
+import { ChevronRight, Filter, Sparkles, Phone, MessageSquare, Loader2 } from 'lucide-react';
 import { AnimatedSection } from '../components/AnimatedSection';
 
 interface HomePageProps {
@@ -16,6 +16,7 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onOpenEnquiry }) => {
+  const { products: PRODUCTS, categories: CATEGORIES, contactSettings, loading } = useData();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   // Filter products for homepage grid
@@ -23,6 +24,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenEnquiry }) => {
     if (selectedCategory === 'All') return true;
     return prod.category === selectedCategory;
   });
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-center space-y-3">
+          <Loader2 className="w-8 h-8 animate-spin text-tgmc-blue mx-auto" />
+          <p className="text-xs text-slate-500 font-semibold">Loading TGMC Water Solutions...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-0">
@@ -147,7 +159,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenEnquiry }) => {
               </button>
               
               <a
-                href="https://wa.me/919964750573"
+                href={`https://wa.me/${contactSettings.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3.5 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-full transition-all flex items-center gap-2"
@@ -157,11 +169,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenEnquiry }) => {
               </a>
 
               <a
-                href="tel:9964750573"
+                href={`tel:${contactSettings.phone}`}
                 className="px-6 py-3.5 text-sm font-bold text-white bg-white/20 hover:bg-white/30 rounded-full transition-all flex items-center gap-2"
               >
                 <Phone className="w-4 h-4" />
-                <span>Call: 9964750573</span>
+                <span>Call: {contactSettings.phone}</span>
               </a>
             </div>
           </div>
@@ -171,4 +183,5 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenEnquiry }) => {
     </div>
   );
 };
+
 

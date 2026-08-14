@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
-import { COMPANY_DETAILS, PRODUCTS } from '../data/products';
-import { MapPin, Phone, MessageSquare, Send, CheckCircle2, Clock, ShieldCheck } from 'lucide-react';
+import { useData } from '../context/DataContext';
+import { supabase } from '../supabaseClient';
+import { MapPin, Phone, MessageSquare, Send, CheckCircle2, Clock, ShieldCheck, Loader2 } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
+  const { products: PRODUCTS, contactSettings: COMPANY_DETAILS, loading } = useData();
+
   const [fullName, setFullName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [email, setEmail] = useState('');
-  const [productInterested, setProductInterested] = useState(PRODUCTS[0].name);
+  const [productInterested, setProductInterested] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  // Initialize interest select value once products load
+  React.useEffect(() => {
+    if (PRODUCTS.length > 0 && !productInterested) {
+      setProductInterested(PRODUCTS[0].name);
+    }
+  }, [PRODUCTS, productInterested]);
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -23,15 +33,31 @@ export const ContactPage: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitted(true);
 
+    try {
+      // 1. Submit customer inquiry to Supabase
+      const { error } = await supabase.from('inquiries').insert({
+        name: fullName.trim(),
+        phone: mobileNumber.trim(),
+        email: email.trim() || null,
+        product: productInterested,
+        message: message.trim() || null,
+        status: 'New',
+        is_read: false
+      });
+      if (error) console.error("Database save failed:", error.message);
+    } catch (err) {
+      console.error("Exception submitting inquiry to Supabase:", err);
+    }
+
     const waText = `Hello TGMC, I am interested in ${productInterested}.\n\n*Name:* ${fullName}\n*Phone:* ${mobileNumber}${email ? `\n*Email:* ${email}` : ''}${message ? `\n*Message:* ${message}` : ''}\n\nPlease share the product details and quotation.`;
     const encodedText = encodeURIComponent(waText);
-    const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${encodedText}`;
 
     setTimeout(() => {
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -40,6 +66,19 @@ export const ContactPage: React.FC = () => {
       }, 1500);
     }, 1000);
   };
+
+  if (loading || PRODUCTS.length === 0) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <Loader2 className="w-8 h-8 animate-spin text-tgmc-blue" />
+      </div>
+    );
+  }
+
+  const formattedWhatsApp = COMPANY_DETAILS.whatsapp.startsWith('91') 
+    ? `+91 ${COMPANY_DETAILS.whatsapp.slice(2, 7)} ${COMPANY_DETAILS.whatsapp.slice(7)}` 
+    : COMPANY_DETAILS.whatsapp;
+
 
   return (
     <div className="bg-slate-50 min-h-screen py-10">
@@ -99,7 +138,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <strong className="block text-slate-900 text-sm font-heading">WhatsApp Direct</strong>
-                    <span className="text-emerald-700 font-bold">{COMPANY_DETAILS.formattedWhatsApp}</span>
+                    <span className="text-emerald-700 font-bold">{formattedWhatsApp}</span>
                   </div>
                 </div>
 
@@ -125,7 +164,7 @@ export const ContactPage: React.FC = () => {
                 </a>
                 
                 <a
-                  href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent('Hello TGMC, I want to enquire about water solutions.')}`}
+                  href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${encodeURIComponent('Hello TGMC, I want to enquire about water solutions.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-3 px-4 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl text-center transition-colors flex items-center justify-center gap-2 shadow"
@@ -145,7 +184,7 @@ export const ContactPage: React.FC = () => {
               <div className="w-full h-56 rounded-2xl overflow-hidden border border-slate-200">
                 <iframe
                   title="TGMC Location Hesaragatta Road Bangalore"
-                  src={COMPANY_DETAILS.mapsEmbed}
+                  src={COMPANY_DETAILS.maps_embed}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -174,7 +213,7 @@ export const ContactPage: React.FC = () => {
                 <CheckCircle2 className="w-16 h-16 text-emerald-500 animate-bounce" />
                 <h3 className="text-2xl font-bold text-slate-900 font-heading">Form Submitted!</h3>
                 <p className="text-xs text-slate-600">
-                  Redirecting to WhatsApp to send message to <strong>{COMPANY_DETAILS.formattedWhatsApp}</strong>...
+                  Redirecting to WhatsApp to send message to <strong>{formattedWhatsApp}</strong>...
                 </p>
               </div>
             ) : (

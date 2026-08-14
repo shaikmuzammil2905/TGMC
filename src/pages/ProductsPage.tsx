@@ -1,14 +1,15 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
-import { PRODUCTS, CATEGORIES, BRANDS } from '../data/products';
-import { Search, Filter, RotateCcw, X, SlidersHorizontal } from 'lucide-react';
+import { useData } from '../context/DataContext';
+import { Search, Filter, RotateCcw, X, SlidersHorizontal, Loader2 } from 'lucide-react';
 
 interface ProductsPageProps {
   onOpenEnquiry: (productName?: string) => void;
 }
 
 export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenEnquiry }) => {
+  const { products: PRODUCTS, categories: CATEGORIES, brands: BRANDS, loading } = useData();
   const [searchParams, setSearchParams] = useSearchParams();
   
   const initialCategory = searchParams.get('category') || 'All';
@@ -23,26 +24,30 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenEnquiry }) => 
 
   // Sync state with URL parameter changes (crucial for clicking brand/category links when already on page)
   useEffect(() => {
+    if (loading) return;
     setSelectedCategory(searchParams.get('category') || 'All');
     setSelectedBrand(searchParams.get('brand') || 'All');
     setSearchQuery(searchParams.get('q') || '');
-  }, [searchParams]);
+  }, [searchParams, loading]);
 
   // Update URL parameters when state changes
   useEffect(() => {
+    if (loading) return;
     const params: { [key: string]: string } = {};
     if (selectedCategory !== 'All') params.category = selectedCategory;
     if (selectedBrand !== 'All') params.brand = selectedBrand;
     if (searchQuery.trim()) params.q = searchQuery;
     setSearchParams(params, { replace: true });
-  }, [selectedCategory, selectedBrand, searchQuery]);
+  }, [selectedCategory, selectedBrand, searchQuery, loading]);
 
   const filteredProducts = useMemo(() => {
+    if (loading) return [];
     return PRODUCTS.filter((prod) => {
       // Category Filter
       if (selectedCategory !== 'All' && prod.category !== selectedCategory) {
         return false;
       }
+
       // Brand Filter
       if (selectedBrand !== 'All' && prod.brand !== selectedBrand) {
         return false;
@@ -76,6 +81,17 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenEnquiry }) => 
     setSelectedBrand('All');
     setSelectedSort('default');
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <div className="text-center space-y-3">
+          <Loader2 className="w-8 h-8 animate-spin text-tgmc-blue mx-auto" />
+          <p className="text-xs text-slate-500 font-semibold">Loading Catalog Products...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-slate-50 min-h-screen py-6 sm:py-10">

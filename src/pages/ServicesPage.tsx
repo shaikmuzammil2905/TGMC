@@ -1,67 +1,36 @@
 import React from 'react';
-import { 
-  ShoppingBag, 
-  Wrench, 
-  Droplet, 
-  Flame, 
-  Gauge, 
-  Factory, 
-  Headphones, 
-  Phone, 
-  MessageSquare,
-  CheckCircle2
-} from 'lucide-react';
-import { COMPANY_DETAILS } from '../data/products';
+import { Loader2, HelpCircle, CheckCircle2, Phone } from 'lucide-react';
+import * as Icons from 'lucide-react';
+import { useData } from '../context/DataContext';
 
 interface ServicesPageProps {
   onOpenEnquiry: (productName?: string) => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onOpenEnquiry }) => {
-  const servicesList = [
-    {
-      title: 'Product Sales',
-      icon: ShoppingBag,
-      desc: 'Supply of authentic water softeners, drinking RO purifiers, heat pumps, solar water heaters, pressure pumps, and commercial water plants.',
-      points: ['Original manufacturer products', 'Transparent product guidance', 'Residential & commercial supply']
-    },
-    {
-      title: 'Installation Support',
-      icon: Wrench,
-      desc: 'Professional installation assistance and plumbing setup for water softeners, filtration vessels, RO purifiers, and heat pump water heaters.',
-      points: ['Experienced technical team', 'Plumbing & electrical guidance', 'Proper fitting & site testing']
-    },
-    {
-      title: 'Water Purification Solutions',
-      icon: Droplet,
-      desc: 'Custom pre-filtration, iron removal, sand filtration, and drinking RO purification for hard water, borewell, or municipal water supplies.',
-      points: ['Hard water softeners', 'Borewell iron filter tanks', 'Under-sink & countertop RO purifiers']
-    },
-    {
-      title: 'Heat Pump Solutions',
-      icon: Flame,
-      desc: 'Residential and commercial heat pump water heating systems for all-weather 24x7 hot water with energy efficient air-source technology.',
-      points: ['Delta Green & Zero B heat pumps', '200 LTR to 10000 LTR capacities', 'Residential & enterprise systems']
-    },
-    {
-      title: 'Pump Solutions',
-      icon: Gauge,
-      desc: 'High performance water pressure booster pumps and submersible sump motors for uniform pressure in showers and drainage management.',
-      points: ['Grundfos & Kirloskar pressure pumps', 'Automatic pressure controllers', 'Submersible sump motors']
-    },
-    {
-      title: 'Commercial RO Solutions',
-      icon: Factory,
-      desc: 'Heavy-duty industrial reverse osmosis plants ranging from 25 LPH up to 1000 LPH for offices, restaurants, hospitals, and factories.',
-      points: ['25 LPH to 1000 LPH plants', 'Stainless steel skid mounting', 'Membrane pre-treatment']
-    },
-    {
-      title: 'Service & Support',
-      icon: Headphones,
-      desc: 'Ongoing product-related technical guidance, filter cartridge replacement support, membrane servicing, and customer support.',
-      points: ['Bangalore local support', 'Hesaragatta Road location desk', 'Prompt technical assistance']
-    }
-  ];
+  const { services: dbServices, contactSettings: COMPANY_DETAILS, loading } = useData();
+
+  // Dynamic Lucide Icon mapper helper
+  const getIconComponent = (iconName: string) => {
+    const IconComponent = (Icons as any)[iconName];
+    return IconComponent || HelpCircle;
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <Loader2 className="w-8 h-8 animate-spin text-tgmc-blue" />
+      </div>
+    );
+  }
+
+  const servicesList = dbServices.map(s => ({
+    title: s.name,
+    icon: getIconComponent(s.imageUrl || 'Wrench'),
+    desc: s.description,
+    points: s.features || []
+  }));
+
 
   return (
     <div className="bg-slate-50 min-h-screen py-10">

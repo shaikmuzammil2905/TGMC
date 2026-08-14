@@ -1,12 +1,36 @@
 import React from 'react';
-import { COMPANY_DETAILS } from '../data/products';
-import { MapPin, Phone, MessageSquare, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { useData } from '../context/DataContext';
+import { MapPin, Phone, MessageSquare, ShieldCheck, CheckCircle2, Loader2 } from 'lucide-react';
 
 interface AboutPageProps {
   onOpenEnquiry: (productName?: string) => void;
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onOpenEnquiry }) => {
+  const { aboutContent, contactSettings: COMPANY_DETAILS, loading } = useData();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <Loader2 className="w-8 h-8 animate-spin text-tgmc-blue" />
+      </div>
+    );
+  }
+
+  const introSection = aboutContent.find(a => a.section === 'intro') || {
+    title: 'Pure Water. Better Life.',
+    description: 'TGMC (The General Material Corporation) is a dedicated sales and service enterprise dealing in water purification systems, softeners, RO systems, heat pumps, solar water heaters, and pressure pumps based in Hesaragatta Road, Bangalore – 560073.'
+  };
+
+  const focusSection = aboutContent.find(a => a.section === 'focus') || {
+    title: 'Our Core Product & Service Focus',
+    description: 'We specialize in providing complete domestic and commercial water management solutions. Our portfolio spans automatic water softeners for hard water treatment, multi-grade sand and carbon filters, specialized iron removal systems, under-sink drinking RO purifiers, energy-efficient heat pump water heaters, rooftop solar water heaters, pressure booster pumps, sump motors, and industrial commercial RO plants.'
+  };
+
+  const formattedWhatsApp = COMPANY_DETAILS.whatsapp.startsWith('91') 
+    ? `+91 ${COMPANY_DETAILS.whatsapp.slice(2, 7)} ${COMPANY_DETAILS.whatsapp.slice(7)}` 
+    : COMPANY_DETAILS.whatsapp;
+
   return (
     <div className="bg-slate-50 min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -17,10 +41,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenEnquiry }) => {
             About TGMC
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mt-2">
-            Pure Water. Better Life.
+            {introSection.title}
           </h1>
           <p className="text-sm text-slate-600 mt-2">
-            <strong>TGMC (The General Material Corporation)</strong> is a dedicated sales and service enterprise dealing in water purification systems, softeners, RO systems, heat pumps, solar water heaters, and pressure pumps based in <strong>Hesaragatta Road, Bangalore – 560073</strong>.
+            {introSection.description}
           </p>
         </div>
 
@@ -29,11 +53,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenEnquiry }) => {
           
           <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-card space-y-6">
             <h2 className="text-2xl font-bold text-slate-900 font-heading">
-              Our Core Product & Service Focus
+              {focusSection.title}
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              We specialize in providing complete domestic and commercial water management solutions. Our portfolio spans automatic water softeners for hard water treatment, multi-grade sand and carbon filters, specialized iron removal systems, under-sink drinking RO purifiers, energy-efficient heat pump water heaters, rooftop solar water heaters, pressure booster pumps, sump motors, and industrial commercial RO plants.
+              {focusSection.description}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -115,7 +139,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenEnquiry }) => {
                 <MessageSquare className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
                   <strong className="block text-white text-sm">WhatsApp Business:</strong>
-                  <span>{COMPANY_DETAILS.formattedWhatsApp}</span>
+                  <span>{formattedWhatsApp}</span>
                 </div>
               </div>
             </div>

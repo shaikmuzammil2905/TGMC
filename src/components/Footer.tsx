@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, MessageSquare, ArrowRight, ShieldCheck, Clock } from 'lucide-react';
-import { COMPANY_DETAILS } from '../data/products';
+import { useData } from '../context/DataContext';
 
 interface FooterProps {
   onOpenEnquiry: (productName?: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
+  const { contactSettings: COMPANY_DETAILS } = useData();
+  const formattedWhatsApp = COMPANY_DETAILS.whatsapp.startsWith('91') 
+    ? `+91 ${COMPANY_DETAILS.whatsapp.slice(2, 7)} ${COMPANY_DETAILS.whatsapp.slice(7)}` 
+    : COMPANY_DETAILS.whatsapp;
+
   return (
     <footer className="bg-tgmc-dark text-slate-300 pt-16 pb-24 lg:pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider leading-none mt-0.5 mb-1">
                   The General Material Corporation
                 </p>
-                <p className="text-xs text-tgmc-cyan font-medium">{COMPANY_DETAILS.tagline}</p>
+                <p className="text-xs text-tgmc-cyan font-medium">Pure Water. Better Life.</p>
               </div>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
@@ -62,18 +67,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Products Catalog
+                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Services
                 </Link>
               </li>
               <li>
                 <Link to="/brands" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Brands We Supply
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Sales & Service Support
+                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Brands
                 </Link>
               </li>
               <li>
@@ -84,25 +84,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
             </ul>
           </div>
 
-          {/* Product Categories Col 3 */}
+          {/* Catalog Abstractions Col 3 */}
           <div className="space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-wider text-white font-heading border-b border-slate-800 pb-2">
-              Product Categories
+              Our Abstractions
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link to="/products?category=Water Softener" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Automatic Water Softeners
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category=RO Purifier" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Drinking RO Purifiers
-                </Link>
-              </li>
-              <li>
-                <Link to="/products?category=Heat Pump" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Heat Pump Water Heaters
+                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Hard Water Softeners
                 </Link>
               </li>
               <li>
@@ -111,8 +101,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
                 </Link>
               </li>
               <li>
+                <Link to="/products?category=Heat Pump" className="hover:text-white transition-colors flex items-center gap-1.5">
+                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Heat Pump Water Heaters
+                </Link>
+              </li>
+              <li>
                 <Link to="/products?category=Pressure Pump" className="hover:text-white transition-colors flex items-center gap-1.5">
-                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Pressure & Sump Motors
+                  <ArrowRight className="w-3 h-3 text-tgmc-cyan" /> Pressure Booster Pumps
                 </Link>
               </li>
               <li>
@@ -138,13 +133,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
               </button>
               
               <a
-                href={`https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent('Hello TGMC, I need information about water purification products.')}`}
+                href={`https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${encodeURIComponent('Hello TGMC, I need information about water purification products.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-2.5 px-4 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors flex items-center justify-center gap-2"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp Us ({COMPANY_DETAILS.formattedWhatsApp})</span>
+                <span>WhatsApp Us ({formattedWhatsApp})</span>
               </a>
 
               <a
@@ -172,7 +167,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnquiry }) => {
 
         {/* Footer Bottom Line */}
         <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>© {new Date().getFullYear()} {COMPANY_DETAILS.name} - Pure Water. Better Life. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {COMPANY_DETAILS.company_name || 'TGMC'} - Pure Water. Better Life. All rights reserved.</p>
           <p className="text-slate-400">Hesaragatta Road, Bangalore – 560073</p>
         </div>
       </div>

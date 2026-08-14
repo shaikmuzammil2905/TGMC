@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Menu, X, MessageSquare, ChevronRight, Droplets } from 'lucide-react';
-import { COMPANY_DETAILS } from '../data/products';
+import { useData } from '../context/DataContext';
 
 interface NavbarProps {
   onOpenEnquiry: (productName?: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiry }) => {
+  const { contactSettings: COMPANY_DETAILS, loading } = useData();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();

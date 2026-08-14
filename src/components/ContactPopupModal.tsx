@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, MessageSquare, Phone } from 'lucide-react';
-import { COMPANY_DETAILS, PRODUCTS } from '../data/products';
+import { useData } from '../context/DataContext';
+import { supabase } from '../supabaseClient';
 
 interface ContactPopupModalProps {
   isOpen: boolean;
@@ -13,13 +14,21 @@ export const ContactPopupModal: React.FC<ContactPopupModalProps> = ({
   onClose,
   initialProduct = ''
 }) => {
+  const { products: PRODUCTS, contactSettings: COMPANY_DETAILS, loading } = useData();
+
   const [fullName, setFullName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [email, setEmail] = useState('');
-  const [productInterested, setProductInterested] = useState(initialProduct || PRODUCTS[0].name);
+  const [productInterested, setProductInterested] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  useEffect(() => {
+    if (PRODUCTS.length > 0 && !productInterested) {
+      setProductInterested(initialProduct || PRODUCTS[0].name);
+    }
+  }, [PRODUCTS, initialProduct, productInterested]);
 
   useEffect(() => {
     if (initialProduct) {
@@ -38,7 +47,7 @@ export const ContactPopupModal: React.FC<ContactPopupModalProps> = ({
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || loading || PRODUCTS.length === 0) return null;
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -55,15 +64,30 @@ export const ContactPopupModal: React.FC<ContactPopupModalProps> = ({
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitted(true);
 
+    try {
+      // 1. Save customer inquiry details to Supabase table
+      await supabase.from('inquiries').insert({
+        name: fullName.trim(),
+        phone: mobileNumber.trim(),
+        email: email.trim() || null,
+        product: productInterested,
+        message: message.trim() || null,
+        status: 'New',
+        is_read: false
+      });
+    } catch (err) {
+      console.error("Popup submit error saving inquiry to Supabase:", err);
+    }
+
     const waText = `Hello TGMC, I am interested in ${productInterested}.\n\n*Name:* ${fullName}\n*Phone:* ${mobileNumber}${email ? `\n*Email:* ${email}` : ''}${message ? `\n*Message:* ${message}` : ''}\n\nPlease share the product details and quotation.`;
     const encodedText = encodeURIComponent(waText);
-    const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${encodedText}`;
 
     setTimeout(() => {
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -73,6 +97,10 @@ export const ContactPopupModal: React.FC<ContactPopupModalProps> = ({
       }, 1500);
     }, 1000);
   };
+
+  const formattedWhatsApp = COMPANY_DETAILS.whatsapp.startsWith('91') 
+    ? `+91 ${COMPANY_DETAILS.whatsapp.slice(2, 7)} ${COMPANY_DETAILS.whatsapp.slice(7)}` 
+    : COMPANY_DETAILS.whatsapp;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/75 backdrop-blur-sm animate-fadeIn">
@@ -88,7 +116,7 @@ export const ContactPopupModal: React.FC<ContactPopupModalProps> = ({
             </span>
             <h3 className="text-xl font-bold font-heading">Get Best Price & Quote</h3>
             <p className="text-xs text-slate-200 mt-1">
-              {COMPANY_DETAILS.name} Sales & Service Support Bangalore
+              {COMPANY_DETAILS.company_name || 'TGMC'} Sales & Service Support Bangalore
             </p>
           </div>
           <button 
@@ -106,7 +134,7 @@ export const ContactPopupModal: React.FC<ContactPopupModalProps> = ({
             <CheckCircle2 className="w-16 h-16 text-emerald-500 animate-bounce" />
             <h4 className="text-2xl font-bold text-slate-900 font-heading">Enquiry Submitted!</h4>
             <p className="text-sm text-slate-600 max-w-xs">
-              Opening WhatsApp to send your request directly to <strong>{COMPANY_DETAILS.formattedWhatsApp}</strong>...
+              Opening WhatsApp to send your request directly to <strong>{formattedWhatsApp}</strong>...
             </p>
           </div>
         ) : (

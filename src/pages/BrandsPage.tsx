@@ -1,13 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BRANDS, PRODUCTS } from '../data/products';
-import { Award, ChevronRight } from 'lucide-react';
+import { useData } from '../context/DataContext';
+import { Award, ChevronRight, Loader2 } from 'lucide-react';
 
 interface BrandsPageProps {
   onOpenEnquiry: (productName?: string) => void;
 }
 
 export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenEnquiry }) => {
+  const { brands: BRANDS, products: PRODUCTS, loading } = useData();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <Loader2 className="w-8 h-8 animate-spin text-tgmc-blue" />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-slate-50 min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
@@ -28,7 +38,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onOpenEnquiry }) => {
         {/* Brands Overview List */}
         <div className="space-y-8">
           {BRANDS.map((brand) => {
-            const brandProducts = PRODUCTS.filter((p) => p.brand === brand.name);
+            const brandProducts = PRODUCTS.filter((p) => p.brand === brand.id || p.brand === brand.name);
 
             return (
               <div

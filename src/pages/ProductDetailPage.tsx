@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { PRODUCTS, COMPANY_DETAILS } from '../data/products';
+import { useData } from '../context/DataContext';
 import { ProductCard } from '../components/ProductCard';
 import { 
   ChevronRight, 
@@ -12,7 +12,8 @@ import {
   MapPin,
   ArrowLeft,
   Info,
-  Layers
+  Layers,
+  Loader2
 } from 'lucide-react';
 
 interface ProductDetailPageProps {
@@ -20,11 +21,20 @@ interface ProductDetailPageProps {
 }
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onOpenEnquiry }) => {
+  const { products: PRODUCTS, contactSettings: COMPANY_DETAILS, loading } = useData();
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [zoomImage, setZoomImage] = useState(false);
 
   const product = PRODUCTS.find((p) => p.slug === slug);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+        <Loader2 className="w-8 h-8 animate-spin text-tgmc-blue" />
+      </div>
+    );
+  }
 
   if (!product) {
     return (
@@ -46,7 +56,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ onOpenEnqu
   ).slice(0, 4);
 
   const whatsappMessage = `Hello TGMC, I am interested in ${product.name} (${product.brand}). Please share the product details and quotation.`;
-  const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="bg-slate-50 min-h-screen py-8">
